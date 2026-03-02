@@ -47,7 +47,7 @@ mkdir /opt/seaticket
 cd /opt/seaticket
 
 wget -O .env https://manual.seaticket.ai/latest/repo/docker/seaticket/env
-wget https://manual.seaticket.ai/latest/repo/docker/seaticket/config.yml
+wget https://manual.seaticket.ai/latest/repo/docker/seaticket/seaticket.yml
 wget https://manual.seaticket.ai/latest/repo/docker/seaticket/caddy.yml
 wget https://manual.seaticket.ai/latest/repo/docker/seaticket/seaqa-web.yml
 wget https://manual.seaticket.ai/latest/repo/docker/seaticket/seaqa-indexer.yml

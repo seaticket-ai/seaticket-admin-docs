@@ -11,11 +11,15 @@ services:
     environment:
       - SEAQA_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
       - TZ=${TIME_ZONE:-}
-      - JWT_PRIVATE_KEY=${SEADB_SERVER_ACCESS_TOEKN:?Variable is not set or empty}
+      - JWT_PRIVATE_KEY=${SEADB_SERVER_ACCESS_TOKEN:?Variable is not set or empty}
     networks:
       - backend-net
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8888 || exit 1"]
+      test:
+        - CMD-SHELL
+        - |
+          code=$$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8888/ || echo 000)
+          [ "$$code" -ge 200 ] && [ "$$code" -lt 500 ]
       interval: 30s
       timeout: 10s
       retries: 3

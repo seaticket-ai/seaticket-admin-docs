@@ -6,14 +6,14 @@ services:
     ports:
       - 8887:8887
     volumes:
-      - ./config.yml:/opt/seaticket/conf/config.yml:ro
+      - ./seaticket.yaml:/opt/seaticket/conf/seaticket.yaml:ro
       - ${SEATICKET_VOLUME:-/opt/seaticket-data}:/shared
     environment:
       - SEAQA_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
       - TZ=${TIME_ZONE:-UTC}
       - JWT_PRIVATE_KEY=${JWT_PRIVATE_KEY:?Variable is not set or empty}
       - SEADB_SERVER_URL=${SEADB_SERVER_URL:-seadb}
-      - SEADB_SERVER_ACCESS_TOEKN=${SEADB_SERVER_ACCESS_TOEKN:?Variable is not set or empty}
+      - SEADB_SERVER_ACCESS_TOKEN=${SEADB_SERVER_ACCESS_TOKEN:?Variable is not set or empty}
       - SEAQA_MYSQL_DB_HOST=${SEAQA_MYSQL_DB_HOST:?Variable is not set or empty}
       - SEAQA_MYSQL_DB_PORT=${SEAQA_MYSQL_DB_PORT:-3306}
       - SEAQA_MYSQL_DB_USER=${SEAQA_MYSQL_DB_USER:-seaticket}
@@ -29,7 +29,11 @@ services:
     networks:
       - backend-net
     healthcheck:
-      test: ["CMD-SHELL", "curl -f http://127.0.0.1:8887 || exit 1"]
+      test:
+        - CMD-SHELL
+        - |
+          code=$$(curl -s -o /dev/null -w '%{http_code}' http://127.0.0.1:8887/ || echo 000)
+          [ "$$code" -ge 200 ] && [ "$$code" -lt 500 ]
       interval: 30s
       timeout: 10s
       retries: 3

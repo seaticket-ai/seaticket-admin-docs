@@ -5,4 +5,4 @@ COMPOSE_PATH_SEPARATOR=','
 TIME_ZONE=UTC
 
 # shared secret for secure communication
-SEADB_SERVER_ACCESS_TOEKN=
+SEADB_SERVER_ACCESS_TOKEN=

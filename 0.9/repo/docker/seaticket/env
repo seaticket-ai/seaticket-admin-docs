@@ -6,6 +6,7 @@ TIME_ZONE=UTC
 
 # SeaTicket server configuration
 JWT_PRIVATE_KEY=
+SECRET_KEY=
 SEATICKET_SERVER_HOSTNAME=
 SEATICKET_SERVER_PROTOCOL=http
 
@@ -13,7 +14,7 @@ SEATICKET_SERVER_PROTOCOL=http
 
 ## SeaTicket components configuration (JWT_PRIVATE_KEY of SeaDB should be the same as SeaTicket)
 SEADB_SERVER_URL=
-SEADB_SERVER_ACCESS_TOEKN=
+SEADB_SERVER_ACCESS_TOKEN=
 
 ## Database (MySQL)
 SEAQA_MYSQL_DB_HOST=

@@ -6,14 +6,15 @@ services:
     # ports:
     #   - 80:80
     volumes:
-      - ./config.yml:/opt/seaticket/conf/config.yml:ro
+      - ./seaticket.yaml:/opt/seaticket/conf/seaticket.yaml:ro
       - ${SEATICKET_VOLUME:-/opt/seaticket-data}:/shared
     environment:
       - SEAQA_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
       - TZ=${TIME_ZONE:-UTC}
       - JWT_PRIVATE_KEY=${JWT_PRIVATE_KEY:?Variable is not set or empty}
+      - SECRET_KEY=${SECRET_KEY:?Variable is not set or empty}
       - SEADB_SERVER_URL=${SEADB_SERVER_URL:-seadb}
-      - SEADB_SERVER_ACCESS_TOEKN=${SEADB_SERVER_ACCESS_TOEKN:?Variable is not set or empty}
+      - SEADB_SERVER_ACCESS_TOKEN=${SEADB_SERVER_ACCESS_TOKEN:?Variable is not set or empty}
       - SEAQA_MYSQL_DB_HOST=${SEAQA_MYSQL_DB_HOST:?Variable is not set or empty}
       - SEAQA_MYSQL_DB_PORT=${SEAQA_MYSQL_DB_PORT:-3306}
       - SEAQA_MYSQL_DB_USER=${SEAQA_MYSQL_DB_USER:-seaticket}

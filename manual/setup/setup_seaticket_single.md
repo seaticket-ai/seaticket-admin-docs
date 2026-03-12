@@ -111,7 +111,7 @@ docker exec -it seaqa-web /scripts/reset-admin.sh
 
 Enter the username and password according to the prompts. You now have a new admin account.
 
-Finially, you can go to `http://seaticket.example.com` to use SeaTicket.
+Finally, you can go to `http://seaticket.example.com` to use SeaTicket.
 
 ## Deploy other components
 

@@ -1,4 +1,4 @@
-# Accout management
+# Account management
 
 
 ## Add a new admin account

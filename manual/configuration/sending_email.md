@@ -17,8 +17,6 @@ There are two ways to configure SMTP for system-wide emails.
 
     | Key | Description | Example values |
     | --- | --- | --- |
-    | `EMAIL_USE_TLS` | Enable TLS encryption | `true` / `false` |
-    | `EMAIL_USE_SSL` | Enable SSL encryption | `true` / `false` |
     | `EMAIL_HOST` | SMTP server hostname | `smtp.example.com` |
     | `EMAIL_HOST_USER` | Username for authentication | `username@example.com` |
     | `EMAIL_HOST_PASSWORD` | Password for authentication | `password` |
@@ -26,13 +24,15 @@ There are two ways to configure SMTP for system-wide emails.
     | `DEFAULT_FROM_EMAIL` | Default From header | `noreply@example.com` |
     | `SERVER_EMAIL` | Sender for error reporting | `noreply@example.com` |
 
+    !!! note
+        `EMAIL_USE_TLS` (and any SSL flag) cannot be set via environment variables or `seaticket.yaml`. Use `seaqa_web_settings.py` instead.
+
 === "Configuration file"
 
     Add the following lines to `seaqa_web_settings.py`:
 
     ```python
     EMAIL_USE_TLS = False
-    EMAIL_USE_SSL = False
     EMAIL_HOST = 'smtp.example.com'
     EMAIL_HOST_USER = 'username@example.com'
     EMAIL_HOST_PASSWORD = 'password'
@@ -44,8 +44,8 @@ There are two ways to configure SMTP for system-wide emails.
 !!! warning "SMTP without authentication"
     If you want to use the email service without authentication, leave `EMAIL_HOST_USER` and `EMAIL_HOST_PASSWORD` **blank** (`''`).
 
-!!! warning "TLS vs SSL"
-    Only enable one of `EMAIL_USE_TLS` and `EMAIL_USE_SSL`.
+!!! warning "TLS only"
+    SeaTicket only exposes the `EMAIL_USE_TLS` flag. SSL-specific toggles are not supported; use port `465` with TLS disabled if your provider requires implicit SSL.
 
 Restart SeaTicket after updating SMTP configuration.
 

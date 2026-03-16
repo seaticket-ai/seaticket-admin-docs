@@ -24,7 +24,7 @@ The following options can be configured per team role:
 | `can_add_project` | Allow users in the role to create projects. | `True` |
 | `can_add_group` | Allow users in the role to create groups. | `True` |
 | `can_use_saml` | Allow SAML SSO for this role. | `False` for free/start/pro, `True` for business/enterprise |
-| `ai_credit_per_user` | AI credits per user. Set `-1` for unlimited. | `-1` |
+| `ai_credit` | AI credits for the team. Set `-1` for unlimited. | `-1` |
 
 ### Configuration example
 
@@ -35,14 +35,14 @@ ENABLED_ROLE_PERMISSIONS = {
         'can_add_project': True,
         'can_add_group': True,
         'can_use_saml': False,
-        'ai_credit_per_user': -1,
+        'ai_credit': -1,
     },
     'start': {
         'can_use_saml': False,
-        'ai_credit_per_user': 2000,
+        'ai_credit': 2000,
     },
     'pro': {
-        'ai_credit_per_user': 5000,
+        'ai_credit': 5000,
     },
     'business': {
         'can_use_saml': True,

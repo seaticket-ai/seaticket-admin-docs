@@ -1,10 +1,10 @@
-# seaticket.yaml
+# seaticket_config.yaml
 
-Besides [`.env`](./environment_variables.md) for general settings, the `seaticket.yaml` is used to specify the detailed configurations of the all components in SeaTicket docker.
+Besides [`.env`](./environment_variables.md) for general settings, the `seaticket_config.yaml` is used to specify the detailed configurations of the all components in SeaTicket docker.
 
-## File structure of seaticket.yaml
+## File structure of seaticket_config.yaml
 
-`seaticket.yaml` consists of the following sections (i.e., `global` and name of each component):
+`seaticket_config.yaml` consists of the following sections (i.e., `global` and name of each component):
 
 ```yaml
 global:
@@ -25,7 +25,7 @@ The global section is generally used to specify configuration items that are com
 
 ### Internal server URLs used for communication between SeaTicket components (cluster only)
 
-In cluster mode, you need to specify the URLs used for internal communication between components via `seaticket.yaml`:
+In cluster mode, you need to specify the URLs used for internal communication between components via `seaticket_config.yaml`:
 
 ```yaml
 global:
@@ -37,9 +37,9 @@ global:
 
 ### LLMs configurations
 
-!!! warning "To ensure the SeaTicket service functions normally, please ensure that `seaticket.yaml` contains **at least one valid LLM**"
+!!! warning "To ensure the SeaTicket service functions normally, please ensure that `seaticket_config.yaml` contains **at least one valid LLM**"
 
-For LLMs configurations, you should configure a list option `LLM_MODELS` in `seaticket.yaml`:
+For LLMs configurations, you should configure a list option `LLM_MODELS` in `seaticket_config.yaml`:
 
 ```yaml
 global:
@@ -159,13 +159,13 @@ global:
     ```
 
 === "Other"
-    Seafile AI utilizes [LiteLLM](https://docs.litellm.ai/docs/) to interact with LLM services. For a complete list of supported LLM providers, please refer to [this documentation](https://docs.litellm.ai/docs/providers). Then fill the following fields in your `seaticket.yaml`:
+    Seafile AI utilizes [LiteLLM](https://docs.litellm.ai/docs/) to interact with LLM services. For a complete list of supported LLM providers, please refer to [this documentation](https://docs.litellm.ai/docs/providers). Then fill the following fields in your `seaticket_config.yaml`:
 
     For example, if you are using a LLM service with ***OpenAI-compatible endpoints***, you should set `type` to `other`, and set other LLM configuration items accurately.
 
 ### Embedding model
 
-!!! warning "To ensure the SeaTicket service functions normally, please ensure that `seaticket.yaml` has specified embedding model"
+!!! warning "To ensure the SeaTicket service functions normally, please ensure that `seaticket_config.yaml` has specified embedding model"
 
 The configuration of embedding models is similar to that of an element in the `LLM_MODELS` list:
 

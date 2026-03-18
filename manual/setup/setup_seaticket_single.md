@@ -40,14 +40,14 @@ SOURCE /tmp/mysql.sql;
 
 ### Download resource files
 
-To deploy SeaTicket with Docker, you have to `.env`, `caddy.yml`, `seaqa-web.yml`, `seaqa-indexer.yml`, `seaqa-ai.yml`, `seaqa-events.yml`, and `seaticket.yaml` in a directory (e.g., `/opt/seaticket`):
+To deploy SeaTicket with Docker, you have to `.env`, `caddy.yml`, `seaqa-web.yml`, `seaqa-indexer.yml`, `seaqa-ai.yml`, `seaqa-events.yml`, and `seaticket_config.yaml` in a directory (e.g., `/opt/seaticket`):
 
 ```bash
 mkdir /opt/seaticket
 cd /opt/seaticket
 
 wget -O .env https://manual.seaticket.ai/0.9/repo/docker/seaticket/env
-wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket.yaml
+wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket_config.yaml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/caddy.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-web.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-indexer.yml
@@ -84,7 +84,7 @@ The following fields merit particular attention:
 | `SEAQA_LOG_TO_STDOUT` | Record logs to container standard output                                                                                                                     | `false`                         |
 | `TIME_ZONE`      | Timezone of SeaTicket server                                                                                                                                 | `UTC`                      |
 
-### Modify `seaticket.yaml` and add LLM models configuration
+### Modify `seaticket_config.yaml` and add LLM models configuration
 
 Please refer [here](../configuration/seaticket_yaml.md) for the details.
 

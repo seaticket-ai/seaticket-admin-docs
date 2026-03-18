@@ -6,7 +6,7 @@ services:
     ports:
       - 8887:8887
     volumes:
-      - ./seaticket.yaml:/opt/seaticket/conf/seaticket.yaml:ro
+      - ./seaticket_config:/opt/seaticket/conf/seaticket_config:ro
       - ${SEATICKET_VOLUME:-/opt/seaticket-data}:/shared
     environment:
       - SEAQA_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}

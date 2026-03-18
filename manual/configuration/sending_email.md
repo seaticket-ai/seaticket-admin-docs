@@ -11,9 +11,9 @@ SeaTicket requires an external SMTP account to send emails. Typical emails inclu
 
 There are two ways to configure SMTP for system-wide emails.
 
-=== "Environment variables / seaticket.yaml"
+=== "Environment variables / seaticket_config.yaml"
 
-    SeaTicket reads SMTP settings from environment variables or `seaticket.yaml` for `seaqa-web`.
+    SeaTicket reads SMTP settings from environment variables or `seaticket_config.yaml` for `seaqa-web`.
 
     | Key | Description | Example values |
     | --- | --- | --- |
@@ -25,7 +25,7 @@ There are two ways to configure SMTP for system-wide emails.
     | `SERVER_EMAIL` | Sender for error reporting | `noreply@example.com` |
 
     !!! note
-        `EMAIL_USE_TLS` (and any SSL flag) cannot be set via environment variables or `seaticket.yaml`. Use `seaqa_web_settings.py` instead.
+        `EMAIL_USE_TLS` (and any SSL flag) cannot be set via environment variables or `seaticket_config.yaml`. Use `seaqa_web_settings.py` instead.
 
 === "Configuration file"
 
@@ -72,7 +72,7 @@ swaks --auth -tls \
 
 If you are using Gmail as email server, you can use the following settings.
 
-=== "Environment variables / seaticket.yaml"
+=== "Environment variables / seaticket_config.yaml"
 
     ```python
     EMAIL_USE_TLS = True
@@ -103,7 +103,7 @@ If you are using Gmail as email server, you can use the following settings.
 
 SeaTicket Cloud can use the SMTP relay of Brevo.
 
-=== "Environment variables / seaticket.yaml"
+=== "Environment variables / seaticket_config.yaml"
 
     ```python
     EMAIL_USE_TLS = True
@@ -131,7 +131,7 @@ SeaTicket Cloud can use the SMTP relay of Brevo.
 
 If you are using Infomaniak as email server, you can use the following settings.
 
-=== "Environment variables / seaticket.yaml"
+=== "Environment variables / seaticket_config.yaml"
 
     !!! warning "SSL support missing"
 

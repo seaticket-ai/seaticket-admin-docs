@@ -1468,16 +1468,18 @@ SOURCE<span class="w"> </span>/tmp/mysql.sql<span class="p">;</span>
 </code></pre></div>
 <h3 id="download-resource-files">Download resource files<a class="headerlink" href="#download-resource-files" title="Permanent link">&para;</a></h3>
 <p>To deploy SeaTicket with Docker, you have to <code>.env</code>, <code>caddy.yml</code>, <code>seaqa-web.yml</code>, <code>seaqa-indexer.yml</code>, <code>seaqa-ai.yml</code>, <code>seaqa-events.yml</code>, and <code>seaticket_config.yaml</code> in a directory (e.g., <code>/opt/seaticket</code>):</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>/opt/seaticket
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/seaticket/conf
 <span class="nb">cd</span><span class="w"> </span>/opt/seaticket
 
 wget<span class="w"> </span>-O<span class="w"> </span>.env<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/env
-wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket_config.yaml
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/caddy.yml
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-web.yml
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-indexer.yml
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-ai.yml
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-events.yml
+
+<span class="nb">cd</span><span class="w"> </span>/opt/seaticket/conf
+wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket_config.yaml
 </code></pre></div>
 <h3 id="modify-env">Modify .env<a class="headerlink" href="#modify-env" title="Permanent link">&para;</a></h3>
 <p>The following fields merit particular attention:</p>

@@ -1,6 +1,6 @@
 services:
   caddy:
-    image: ${CADDY_IMAGE:-lucaslorentz/caddy-docker-proxy:2.9-alpine}
+    image: ${CADDY_IMAGE:-lucaslorentz/caddy-docker-proxy:2.12-alpine}
     restart: unless-stopped
     container_name: caddy
     ports:

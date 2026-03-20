@@ -102,27 +102,3 @@ You can also clean these tables manually as follows.
 ```
 DELETE FROM ai_usage_statistics WHERE `date` < '<cutoff_date>';
 ```
-
-
-## Clean Account and Project API tokens 
-
-There are two tables in sea_qa databases that are related to API tokens.
-
-* Account tokens can be used to access all APIs, while Project API tokens are limited to project-scoped APIs.
-
-You may clean the tokens that are not used in a recent period, by the following SQL query:
-
-```
-DELETE FROM api_token WHERE created < '<cutoff_date>';
-DELETE FROM project_api_token WHERE last_access < '<cutoff_date>';
-```
-
-To be safe, you can first check how many tokens will be removed:
-
-```
-SELECT * FROM api_token WHERE created < '<cutoff_date>';
-SELECT * FROM project_api_token WHERE last_access < '<cutoff_date>';
-```
-
-!!! tip
-  `cutoff_date` is a datetime value (for example, `'2024-01-01 00:00:00'`) for the time before which records will be deleted.

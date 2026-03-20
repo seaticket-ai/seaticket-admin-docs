@@ -1,5 +1,17 @@
 # Clean Database
 
+## Session
+
+Use the following command to clear expired session records in sea_qa database:
+
+```
+cd seaqa-web
+python3 manage.py clearsessions
+```
+
+!!! tip
+    Enter into the docker image, then go to `/data/dev/seaqa-web`
+
 ## SeaTicket Indexer periodic cleanup
 
 SeaTicket Indexer runs periodic cleanup tasks (default: every 24 hours). The tasks remove records in the following databases.
@@ -17,7 +29,7 @@ SeaTicket Indexer runs periodic cleanup tasks (default: every 24 hours). The tas
   * Drop the SeaDB tables that belong to the connection
 
 
-### Login
+## Login
 
 Use the following command to clean the login records:
 
@@ -50,7 +62,7 @@ This command deletes:
 * `chat_message_thought_process` linked to expired sessions
 * Orphaned `chat_messages` and `chat_message_thought_process` rows with no corresponding session
 
-You can also clean these tables manually if you like as following.
+You can also clean these tables manually as follows.
 
 ```
 use sea_qa;
@@ -93,7 +105,7 @@ This task deletes old records in batches from:
 * `user_notifications`
 * `project_notification`
 
-You can also clean these tables manually if you like as following.
+You can also clean these tables manually as follows.
 
 ```
 use sea_qa;
@@ -103,24 +115,47 @@ DELETE FROM project_notification WHERE `timestamp` < '{cutoff_date}';
 ```
 
 
-## Clean Oauth and Project API tokens 
+## Clean portal external invitations
+
+Portal external invitation tokens that expire after a fixed time window (default: 72 hours). Expired invitations should be cleaned to reduce stale records.
+
+You can also clean these tables manually as follows.
+
+```
+DELETE FROM portal_external_invitations WHERE expire_time < '{cutoff_date}';
+```
+
+
+## Clean AI usage statistics
+
+AI usage statistics are stored in `ai_usage_statistics` and should be cleaned by date. The filter field is `date`.
+
+You can also clean these tables manually as follows.
+
+```
+DELETE FROM ai_usage_statistics WHERE `date` < '{cutoff_date}';
+```
+
+
+## Clean User and Project API tokens 
 
 There are two tables in sea_qa databases that are related to API tokens.
 
-* OAuth tokens can be used to access all APIs, while Project API tokens are limited to project-scoped APIs. Note that a separate token is created for every App.
+* User tokens can be used to access all APIs, while Project API tokens are limited to project-scoped APIs.
 
-When you have many clients connected to the server, this table can have large number of rows. Many of them are no longer actively used. You may clean the tokens that are not used in a recent period, by the following SQL query:
+You may clean the tokens that are not used in a recent period, by the following SQL query:
 
 ```
-DELETE FROM api_token WHERE created < xxxx;
-DELETE FROM project_api_token WHERE created < xxxx;
+DELETE FROM api_token WHERE created < '{cutoff_date}';
+DELETE FROM project_api_token WHERE created < '{cutoff_date}';
 ```
-
-`xxxx` is a datetime value (for example, `'2024-01-01 00:00:00'`) for the time before which tokens will be deleted.
 
 To be safe, you can first check how many tokens will be removed:
 
 ```
-SELECT * FROM api_token WHERE created < xxxx;
-SELECT * FROM project_api_token WHERE created < xxxx;
+SELECT * FROM api_token WHERE created < '{cutoff_date}';
+SELECT * FROM project_api_token WHERE created < '{cutoff_date}';
 ```
+
+!!! tip
+  `cutoff_date` is a datetime value (for example, `'2024-01-01 00:00:00'`) for the time before which records will be deleted.

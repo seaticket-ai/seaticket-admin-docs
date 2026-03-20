@@ -54,8 +54,8 @@ global:
       disable: false # optional, disable this LLM, default to `false`
       tier: # optional (must be one of `low`, `medium`, or `high`.), used to specify the inference strength of the model to facilitate invocation between different tasks. If two LLMs have the same `tier`, only the LLM that specifies that `tier` will be used, as specified by the first item in the `LLM_MODELS` list.
       price: # required only need to specify this when you need to track user token usage.
-        input: 0.0001 # dollars / 1k tokens (non-cached)
-        output: 0.01 # dollars / 1k tokens
+        input: 1 # dollars / 1 M tokens (non-cached)
+        output: 10 # dollars / 1 M tokens
 
     # <model 2 configuration>
     # - type: ...
@@ -176,7 +176,7 @@ global:
     model: embedding_model_id
     url: embedding_model_endpoint # required for some provider (or type)
     key: embedding_model_secret_key # required for non-self deployment LLM server (including OpenAI-proxy)
-    price: 0.00002 # dollars / 1K input tokens, required only need to specify this when you need to track user token usage.
+    price: 0.02 # dollars / 1 M input tokens, required only need to specify this when you need to track user token usage.
 ```
 
 ## seaqa-ai settings

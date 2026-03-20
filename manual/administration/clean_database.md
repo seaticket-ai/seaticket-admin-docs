@@ -10,7 +10,7 @@ python3 manage.py clearsessions
 ```
 
 !!! tip
-    Enter into the docker image, then go to `/data/dev/seaqa-web`
+    Enter into the docker image, then go to `/opt/seaticket/seaqa-web`
 
 ## SeaTicket Indexer periodic cleanup
 
@@ -43,7 +43,7 @@ DELETE FROM sysadmin_extra_userloginlog WHERE to_days(now()) - to_days(login_dat
 SeaTicket Web provides a management command to clean old chat data in batches. By default, it keeps the last 90 days.
 
 !!! tip
-    Enter into the docker image, then go to `/data/dev/seaqa-web`
+    Enter into the docker image, then go to `/opt/seaticket/seaqa-web`
 
 ```
 python3 manage.py clean_chat_sessions
@@ -70,18 +70,18 @@ DELETE FROM chat_messages
 WHERE EXISTS (
   SELECT 1 FROM chat_sessions
   WHERE session_uuid = chat_messages.session_uuid
-  AND updated_at < '{cutoff_date}'
+  AND updated_at < '<cutoff_date>'
 );
 
 DELETE FROM chat_message_thought_process
 WHERE EXISTS (
   SELECT 1 FROM chat_sessions
   WHERE session_uuid = chat_message_thought_process.session_uuid
-  AND updated_at < '{cutoff_date}'
+  AND updated_at < '<cutoff_date>'
 );
 
 DELETE FROM chat_sessions
-WHERE updated_at < '{cutoff_date}';
+WHERE updated_at < '<cutoff_date>';
 
 DELETE FROM chat_messages
 WHERE NOT EXISTS (
@@ -109,9 +109,9 @@ You can also clean these tables manually as follows.
 
 ```
 use sea_qa;
-DELETE FROM user_notifications WHERE `timestamp` < '{cutoff_date}';
+DELETE FROM user_notifications WHERE `timestamp` < '<cutoff_date>';
 
-DELETE FROM project_notification WHERE `timestamp` < '{cutoff_date}';
+DELETE FROM project_notification WHERE `timestamp` < '<cutoff_date>';
 ```
 
 
@@ -122,7 +122,7 @@ Portal external invitation tokens that expire after a fixed time window (default
 You can also clean these tables manually as follows.
 
 ```
-DELETE FROM portal_external_invitations WHERE expire_time < '{cutoff_date}';
+DELETE FROM portal_external_invitations WHERE expire_time < '<cutoff_date>';
 ```
 
 
@@ -133,28 +133,28 @@ AI usage statistics are stored in `ai_usage_statistics` and should be cleaned by
 You can also clean these tables manually as follows.
 
 ```
-DELETE FROM ai_usage_statistics WHERE `date` < '{cutoff_date}';
+DELETE FROM ai_usage_statistics WHERE `date` < '<cutoff_date>';
 ```
 
 
-## Clean User and Project API tokens 
+## Clean Account and Project API tokens 
 
 There are two tables in sea_qa databases that are related to API tokens.
 
-* User tokens can be used to access all APIs, while Project API tokens are limited to project-scoped APIs.
+* Account tokens can be used to access all APIs, while Project API tokens are limited to project-scoped APIs.
 
 You may clean the tokens that are not used in a recent period, by the following SQL query:
 
 ```
-DELETE FROM api_token WHERE created < '{cutoff_date}';
-DELETE FROM project_api_token WHERE created < '{cutoff_date}';
+DELETE FROM api_token WHERE created < '<cutoff_date>';
+DELETE FROM project_api_token WHERE last_access < '<cutoff_date>';
 ```
 
 To be safe, you can first check how many tokens will be removed:
 
 ```
-SELECT * FROM api_token WHERE created < '{cutoff_date}';
-SELECT * FROM project_api_token WHERE created < '{cutoff_date}';
+SELECT * FROM api_token WHERE created < '<cutoff_date>';
+SELECT * FROM project_api_token WHERE last_access < '<cutoff_date>';
 ```
 
 !!! tip

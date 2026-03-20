@@ -43,16 +43,18 @@ SOURCE /tmp/mysql.sql;
 To deploy SeaTicket with Docker, you have to `.env`, `caddy.yml`, `seaqa-web.yml`, `seaqa-indexer.yml`, `seaqa-ai.yml`, `seaqa-events.yml`, and `seaticket_config.yaml` in a directory (e.g., `/opt/seaticket`):
 
 ```bash
-mkdir /opt/seaticket
+mkdir -p /opt/seaticket/conf
 cd /opt/seaticket
 
 wget -O .env https://manual.seaticket.ai/0.9/repo/docker/seaticket/env
-wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket_config.yaml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/caddy.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-web.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-indexer.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-ai.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-events.yml
+
+cd /opt/seaticket/conf
+wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket_config.yaml
 ```
 
 ### Modify .env

@@ -185,6 +185,8 @@ The following are the default values, normally, you don't need to make any addit
 
 ```yaml
 seaqa-ai:
+  COMPLETION_MAX_RETRIES: 2 # Maximum number of chating completion retries with LLM
+  TOOL_CALL_MAX_RETRIES: 2 # Maximum number of executing tool retries with LLM
   THOUGHT_PROCESS: # Configure which content to record in the thought process.
     tasks:
       enabled: true

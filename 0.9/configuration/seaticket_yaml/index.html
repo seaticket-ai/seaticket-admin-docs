@@ -1493,7 +1493,9 @@
 <p>The following are the default values, normally, you don't need to make any additional settings for this part</p>
 <div class="highlight"><pre><span></span><code><span class="nt">seaqa-ai</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">COMPLETION_MAX_RETRIES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"> </span><span class="c1"># Maximum number of chating completion retries with LLM</span>
+<span class="w">  </span><span class="nt">COMPLETION_RETRY_INTERVAL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span><span class="w"> </span><span class="c1"># Retry interval when AI chating completion fails</span>
 <span class="w">  </span><span class="nt">TOOL_CALL_MAX_RETRIES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"> </span><span class="c1"># Maximum number of executing tool retries with LLM</span>
+<span class="w">  </span><span class="nt">TOOL_CALL_RETRY_INTERVAL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span><span class="w"> </span><span class="c1"># Retry interval when tool executes fails</span>
 <span class="w">  </span><span class="nt">THOUGHT_PROCESS</span><span class="p">:</span><span class="w"> </span><span class="c1"># Configure which content to record in the thought process.</span>
 <span class="w">    </span><span class="nt">tasks</span><span class="p">:</span>
 <span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>

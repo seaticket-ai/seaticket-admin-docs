@@ -148,8 +148,6 @@ Options for registration, activation, and sign-up restrictions. These settings c
 ```python
 # Allow users to self-register on web UI
 ENABLE_SIGNUP = False
-# Default web form uses phone-based registration if enabled
-USE_PHONE_REGISTRATION_BY_DEFAULT = False
 # Auto-activate after sign-up
 ACTIVATE_AFTER_REGISTRATION = True
 
@@ -207,9 +205,6 @@ ENABLE_DELETE_ACCOUNT = True
 
 # Whether to allow users to update their own information
 ENABLE_UPDATE_USER_INFO = True
-
-# Allow users to bind phone numbers for login
-ENABLE_BIND_PHONE = False
 
 # Age of cookie, in seconds (example: 2 weeks). Default in core is 1 day.
 SESSION_COOKIE_AGE = 60 * 60 * 24

@@ -10,7 +10,7 @@ SeaTicket provides built-in **team roles**, and each role has a set of permissio
 Built-in team roles:
 
 - `free`
-- `start`
+- `starter`
 - `pro`
 - `business`
 - `enterprise`
@@ -23,7 +23,7 @@ The following options can be configured per team role:
 | --- | --- | --- |
 | `can_add_project` | Allow users in the role to create projects. | `True` |
 | `can_add_group` | Allow users in the role to create groups. | `True` |
-| `can_use_saml` | Allow SAML SSO for this role. | `False` for free/start/pro, `True` for business/enterprise |
+| `can_use_saml` | Allow SAML SSO for this role. | `False` for free/starter/pro, `True` for business/enterprise |
 | `ai_credit` | AI credits for the team. Set `-1` for unlimited. | `-1` |
 
 ### Configuration example
@@ -37,7 +37,7 @@ ENABLED_ROLE_PERMISSIONS = {
         'can_use_saml': False,
         'ai_credit': -1,
     },
-    'start': {
+    'starter': {
         'can_use_saml': False,
         'ai_credit': 2000,
     },

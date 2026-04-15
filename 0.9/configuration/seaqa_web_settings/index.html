@@ -1645,7 +1645,7 @@
 <p>Built-in team roles:</p>
 <ul>
 <li><code>free</code></li>
-<li><code>start</code></li>
+<li><code>starter</code></li>
 <li><code>pro</code></li>
 <li><code>business</code></li>
 <li><code>enterprise</code></li>
@@ -1674,7 +1674,7 @@
 <tr>
 <td><code>can_use_saml</code></td>
 <td>Allow SAML SSO for this role.</td>
-<td><code>False</code> for free/start/pro, <code>True</code> for business/enterprise</td>
+<td><code>False</code> for free/starter/pro, <code>True</code> for business/enterprise</td>
 </tr>
 <tr>
 <td><code>ai_credit</code></td>
@@ -1692,7 +1692,7 @@
         <span class="s1">&#39;can_use_saml&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
         <span class="s1">&#39;ai_credit&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s1">&#39;start&#39;</span><span class="p">:</span> <span class="p">{</span>
+    <span class="s1">&#39;starter&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;can_use_saml&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
         <span class="s1">&#39;ai_credit&#39;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
     <span class="p">},</span>
@@ -1779,8 +1779,6 @@
 <p>Options for registration, activation, and sign-up restrictions. These settings control the sign-up flow and whether admins are notified.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Allow users to self-register on web UI</span>
 <span class="n">ENABLE_SIGNUP</span> <span class="o">=</span> <span class="kc">False</span>
-<span class="c1"># Default web form uses phone-based registration if enabled</span>
-<span class="n">USE_PHONE_REGISTRATION_BY_DEFAULT</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># Auto-activate after sign-up</span>
 <span class="n">ACTIVATE_AFTER_REGISTRATION</span> <span class="o">=</span> <span class="kc">True</span>
 
@@ -1838,9 +1836,6 @@
 
 <span class="c1"># Whether to allow users to update their own information</span>
 <span class="n">ENABLE_UPDATE_USER_INFO</span> <span class="o">=</span> <span class="kc">True</span>
-
-<span class="c1"># Allow users to bind phone numbers for login</span>
-<span class="n">ENABLE_BIND_PHONE</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="c1"># Age of cookie, in seconds (example: 2 weeks). Default in core is 1 day.</span>
 <span class="n">SESSION_COOKIE_AGE</span> <span class="o">=</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">60</span> <span class="o">*</span> <span class="mi">24</span>

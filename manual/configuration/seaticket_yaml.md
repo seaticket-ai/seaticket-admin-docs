@@ -145,19 +145,6 @@ global:
         url: <your huggingface API endpoint>
         key: <your huggingface API key>
     ```
-
-=== "Self-proxy OpenAI Server"
-
-    ```yaml
-    global:
-    # ...
-    LLM_MODELS:
-      - type: proxy
-        model: <model-id>
-        url: <your proxy url>
-        key: <your proxy virtual key>
-    ```
-
 === "Other"
     Seafile AI utilizes [LiteLLM](https://docs.litellm.ai/docs/) to interact with LLM services. For a complete list of supported LLM providers, please refer to [this documentation](https://docs.litellm.ai/docs/providers). Then fill the following fields in your `seaticket_config.yaml`:
 

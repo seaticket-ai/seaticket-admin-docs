@@ -54,8 +54,8 @@ global:
       disable: false # optional, disable this LLM, default to `false`
       tier: # optional (must be one of `low`, `medium`, or `high`.), used to specify the inference strength of the model to facilitate invocation between different tasks. If two LLMs have the same `tier`, only the LLM that specifies that `tier` will be used, as specified by the first item in the `LLM_MODELS` list.
       price: # required only need to specify this when you need to track user token usage.
-        input: 1 # dollars / 1 M tokens (non-cached)
-        output: 10 # dollars / 1 M tokens
+        input_tokens: 1 # dollars / 1 M tokens (non-cached)
+        output_tokens: 10 # dollars / 1 M tokens
 
     # <model 2 configuration>
     # - type: ...

@@ -1382,8 +1382,8 @@
 <span class="w">      </span><span class="nt">disable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># optional, disable this LLM, default to `false`</span>
 <span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="c1"># optional (must be one of `low`, `medium`, or `high`.), used to specify the inference strength of the model to facilitate invocation between different tasks. If two LLMs have the same `tier`, only the LLM that specifies that `tier` will be used, as specified by the first item in the `LLM_MODELS` list.</span>
 <span class="w">      </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="c1"># required only need to specify this when you need to track user token usage.</span>
-<span class="w">        </span><span class="nt">input</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># dollars / 1 M tokens (non-cached)</span>
-<span class="w">        </span><span class="nt">output</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"> </span><span class="c1"># dollars / 1 M tokens</span>
+<span class="w">        </span><span class="nt">input_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># dollars / 1 M tokens (non-cached)</span>
+<span class="w">        </span><span class="nt">output_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"> </span><span class="c1"># dollars / 1 M tokens</span>
 
 <span class="w">    </span><span class="c1"># &lt;model 2 configuration&gt;</span>
 <span class="w">    </span><span class="c1"># - type: ...</span>

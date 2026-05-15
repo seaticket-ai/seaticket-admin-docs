@@ -16,6 +16,8 @@
         <link rel="prev" href="../backup_restore/">
       
       
+        <link rel="next" href="../column_management/">
+      
       
         
       
@@ -78,7 +80,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#index-management" class="md-skip">
+        <a href="#index-management-guide" class="md-skip">
           Skip to content
         </a>
       
@@ -1077,33 +1079,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#some-commands" class="md-nav__link">
+  <a href="#rebuilding-indices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Some commands
+        Rebuilding Indices
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Some commands">
+    <nav class="md-nav" aria-label="Rebuilding Indices">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modify-configurations-rebuildsh" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modify configurations rebuild.sh
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#rebuild-connection-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebuild connection index
+        Rebuild Connection Index
       
     </span>
   </a>
@@ -1114,7 +1105,7 @@
   <a href="#rebuild-project-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebuild project index
+        Rebuild Project Index
       
     </span>
   </a>
@@ -1130,6 +1121,34 @@
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../column_management/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Column management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1169,33 +1188,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#some-commands" class="md-nav__link">
+  <a href="#rebuilding-indices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Some commands
+        Rebuilding Indices
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Some commands">
+    <nav class="md-nav" aria-label="Rebuilding Indices">
       <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#modify-configurations-rebuildsh" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Modify configurations rebuild.sh
-      
-    </span>
-  </a>
-  
-</li>
         
           <li class="md-nav__item">
   <a href="#rebuild-connection-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebuild connection index
+        Rebuild Connection Index
       
     </span>
   </a>
@@ -1206,7 +1214,7 @@
   <a href="#rebuild-project-index" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Rebuild project index
+        Rebuild Project Index
       
     </span>
   </a>
@@ -1238,33 +1246,50 @@
   
 
 
-<h1 id="index-management">Index management<a class="headerlink" href="#index-management" title="Permanent link">&para;</a></h1>
-<h2 id="some-commands">Some commands<a class="headerlink" href="#some-commands" title="Permanent link">&para;</a></h2>
-<h3 id="modify-configurations-rebuildsh">Modify configurations rebuild.sh<a class="headerlink" href="#modify-configurations-rebuildsh" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">SEAQA_MYSQL_DB_HOST</span><span class="o">=</span>xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">SEAQA_MYSQL_DB_PORT</span><span class="o">=</span><span class="m">3306</span>
-<span class="nb">export</span><span class="w"> </span><span class="nv">SEAQA_MYSQL_DB_USER</span><span class="o">=</span>xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">SEAQA_MYSQL_DB_PASSWORD</span><span class="o">=</span>xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">SEAQA_MYSQL_DB_NAME</span><span class="o">=</span>xxx
-
-<span class="nb">export</span><span class="w"> </span><span class="nv">SEASEARCH_URL</span><span class="o">=</span>xxx
-<span class="nb">export</span><span class="w"> </span><span class="nv">SEASEARCH_TOKEN</span><span class="o">=</span>xxx
-...
-</code></pre></div>
-<h3 id="rebuild-connection-index">Rebuild connection index<a class="headerlink" href="#rebuild-connection-index" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/opt/seaqa-indexer/seaqa_indexer/index/script
-
-./rebuild_index.sh<span class="w"> </span>--connection-id<span class="w"> </span>xx<span class="w"> </span>clear
-
-./rebuild_index.sh<span class="w"> </span>--connection-id<span class="w"> </span>xx<span class="w"> </span>update
-</code></pre></div>
-<h3 id="rebuild-project-index">Rebuild project index<a class="headerlink" href="#rebuild-project-index" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/opt/seaqa-indexer/seaqa_indexer/index/script
-
-./rebuild_index.sh<span class="w"> </span>--project-uuid<span class="w"> </span>xxx<span class="w"> </span>clear
-
-./rebuild_index.sh<span class="w"> </span>--project-uuid<span class="w"> </span>xxx<span class="w"> </span>update
-</code></pre></div>
+<h1 id="index-management-guide">Index Management Guide<a class="headerlink" href="#index-management-guide" title="Permanent link">&para;</a></h1>
+<p>This document provides instructions for rebuilding indices within the SeaQA Indexer system.</p>
+<h2 id="rebuilding-indices">Rebuilding Indices<a class="headerlink" href="#rebuilding-indices" title="Permanent link">&para;</a></h2>
+<p>Rebuilding an index is typically a two-step process: clearing the existing index and then updating it with fresh data.</p>
+<h3 id="rebuild-connection-index">Rebuild Connection Index<a class="headerlink" href="#rebuild-connection-index" title="Permanent link">&para;</a></h3>
+<p>Use these commands to rebuild the index for a specific connection.</p>
+<ol>
+<li>
+<p><strong>Navigate to the script directory:</strong>
+    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/opt/seaticket/seaqa-indexer/seaqa_indexer/script
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Clear the existing index:</strong>
+    <div class="highlight"><pre><span></span><code>./rebuild_index.sh<span class="w"> </span>--connection-id<span class="w"> </span>&lt;CONNECTION_ID&gt;<span class="w"> </span>clear
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Update the index:</strong>
+    <div class="highlight"><pre><span></span><code>./rebuild_index.sh<span class="w"> </span>--connection-id<span class="w"> </span>&lt;CONNECTION_ID&gt;<span class="w"> </span>update
+</code></pre></div></p>
+</li>
+</ol>
+<h3 id="rebuild-project-index">Rebuild Project Index<a class="headerlink" href="#rebuild-project-index" title="Permanent link">&para;</a></h3>
+<p>Use these commands to rebuild the index for a specific project.</p>
+<ol>
+<li>
+<p><strong>Navigate to the script directory:</strong>
+    <div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>/opt/seaqa-indexer/seaqa_indexer/index/script
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Clear the existing index:</strong>
+    <div class="highlight"><pre><span></span><code>./rebuild_index.sh<span class="w"> </span>--project-uuid<span class="w"> </span>&lt;PROJECT_UUID&gt;<span class="w"> </span>clear
+</code></pre></div></p>
+</li>
+<li>
+<p><strong>Update the index:</strong>
+    <div class="highlight"><pre><span></span><code>./rebuild_index.sh<span class="w"> </span>--project-uuid<span class="w"> </span>&lt;PROJECT_UUID&gt;<span class="w"> </span>update
+</code></pre></div></p>
+</li>
+</ol>
+<hr />
+<p><em>Note: Replace <code>&lt;CONNECTION_ID&gt;</code> and <code>&lt;PROJECT_UUID&gt;</code> with your actual connection ID and project UUID respectively.</em></p>
 
 
 
@@ -1315,6 +1340,22 @@
             </div>
           </a>
         
+        
+          
+          <a href="../column_management/" class="md-footer__link md-footer__link--next" aria-label="Next: Column management">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Column management
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
         
       </nav>
     

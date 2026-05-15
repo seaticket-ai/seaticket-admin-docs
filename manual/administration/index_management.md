@@ -1,43 +1,48 @@
-# Index management
+# Index Management Guide
 
-## Some commands
+This document provides instructions for rebuilding indices within the SeaQA Indexer system.
 
-### Modify configurations rebuild.sh
+## Rebuilding Indices
 
-```shell
+Rebuilding an index is typically a two-step process: clearing the existing index and then updating it with fresh data.
 
-export SEAQA_MYSQL_DB_HOST=xxx
-export SEAQA_MYSQL_DB_PORT=3306
-export SEAQA_MYSQL_DB_USER=xxx
-export SEAQA_MYSQL_DB_PASSWORD=xxx
-export SEAQA_MYSQL_DB_NAME=xxx
+### Rebuild Connection Index
 
-export SEASEARCH_URL=xxx
-export SEASEARCH_TOKEN=xxx
-...
+Use these commands to rebuild the index for a specific connection.
 
-```
+1.  **Navigate to the script directory:**
+    ```shell
+    cd /opt/seaticket/seaqa-indexer/seaqa_indexer/script
+    ```
 
-### Rebuild connection index
+2.  **Clear the existing index:**
+    ```shell
+    ./rebuild_index.sh --connection-id <CONNECTION_ID> clear
+    ```
 
-```shell
-cd /opt/seaqa-indexer/seaqa_indexer/index/script
+3.  **Update the index:**
+    ```shell
+    ./rebuild_index.sh --connection-id <CONNECTION_ID> update
+    ```
 
-./rebuild_index.sh --connection-id xx clear
+### Rebuild Project Index
 
-./rebuild_index.sh --connection-id xx update
+Use these commands to rebuild the index for a specific project.
 
-```
+1.  **Navigate to the script directory:**
+    ```shell
+    cd /opt/seaqa-indexer/seaqa_indexer/index/script
+    ```
 
-### Rebuild project index
+2.  **Clear the existing index:**
+    ```shell
+    ./rebuild_index.sh --project-uuid <PROJECT_UUID> clear
+    ```
 
-```shell
+3.  **Update the index:**
+    ```shell
+    ./rebuild_index.sh --project-uuid <PROJECT_UUID> update
+    ```
 
-cd /opt/seaqa-indexer/seaqa_indexer/index/script
-
-./rebuild_index.sh --project-uuid xxx clear
-
-./rebuild_index.sh --project-uuid xxx update
-
-
-```
+---
+*Note: Replace `<CONNECTION_ID>` and `<PROJECT_UUID>` with your actual connection ID and project UUID respectively.*

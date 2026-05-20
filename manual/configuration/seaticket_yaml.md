@@ -196,17 +196,17 @@ seaqa-ai:
 seaqa-ai:
   AGENT:
     # --- Max records counter ---
-    agent_max_tickets_per_run: 100 # Maximum tickets analyzed per agent run
-    agent_max_github_issues_per_run: 100 # Maximum GitHub issues analyzed per agent run
-    agent_max_analysis_steps: 10 # Maximum analysis steps per agent task
-    agent_max_handling_steps: 5 # Maximum handling steps per agent task
+    max_tickets_per_run: 100 # Maximum tickets analyzed per agent run
+    max_github_issues_per_run: 100 # Maximum GitHub issues analyzed per agent run
+    max_analysis_steps: 10 # Maximum analysis steps per agent task
+    max_handling_steps: 5 # Maximum handling steps per agent task
 
     # --- Agent manager timing (seconds) ---
-    agent_enqueue_pending_events_check_intetval: 5 # Interval to check and flush pending events
-    agent_enqueue_debounce_interval: 600 # Minimum seconds between two enqueues for the same record
-    agent_enqueue_ticket_initial_debounce: 300 # Initial debounce seconds after first ticket event
-    agent_timed_scan_interval: 3600 # Timed scanner execution interval
-    agent_timed_scan_project_cooldown: 86400 # Cooldown before re-scanning the same project
+    enqueue_pending_events_check_intetval: 5 # Interval to check and flush pending events
+    enqueue_debounce_interval: 600 # Minimum seconds between two enqueues for the same record
+    enqueue_ticket_initial_debounce: 300 # Initial debounce seconds after first ticket event
+    timed_scan_interval: 3600 # Timed scanner execution interval
+    timed_scan_project_cooldown: 86400 # Cooldown before re-scanning the same project
 ```
 
 ## seaqa-events settings

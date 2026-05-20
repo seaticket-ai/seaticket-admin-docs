@@ -938,6 +938,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="seaqa-ai settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent configurations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1335,6 +1352,23 @@
     </span>
   </a>
   
+    <nav class="md-nav" aria-label="seaqa-ai settings">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#agent-configurations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent configurations
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1526,6 +1560,22 @@
 <span class="w">    </span><span class="nt">generate_ticket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">low</span>
 <span class="w">    </span><span class="nt">generate_summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">low</span>
 <span class="w">    </span><span class="nt">rerank_relevance</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">medium</span>
+</code></pre></div>
+<h3 id="agent-configurations">Agent configurations<a class="headerlink" href="#agent-configurations" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="nt">seaqa-ai</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">AGENT</span><span class="p">:</span>
+<span class="w">    </span><span class="c1"># --- Max records counter ---</span>
+<span class="w">    </span><span class="nt">agent_max_tickets_per_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"> </span><span class="c1"># Maximum tickets analyzed per agent run</span>
+<span class="w">    </span><span class="nt">agent_max_github_issues_per_run</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">100</span><span class="w"> </span><span class="c1"># Maximum GitHub issues analyzed per agent run</span>
+<span class="w">    </span><span class="nt">agent_max_analysis_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"> </span><span class="c1"># Maximum analysis steps per agent task</span>
+<span class="w">    </span><span class="nt">agent_max_handling_steps</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"> </span><span class="c1"># Maximum handling steps per agent task</span>
+
+<span class="w">    </span><span class="c1"># --- Agent manager timing (seconds) ---</span>
+<span class="w">    </span><span class="nt">agent_enqueue_pending_events_check_intetval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">5</span><span class="w"> </span><span class="c1"># Interval to check and flush pending events</span>
+<span class="w">    </span><span class="nt">agent_enqueue_debounce_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">600</span><span class="w"> </span><span class="c1"># Minimum seconds between two enqueues for the same record</span>
+<span class="w">    </span><span class="nt">agent_enqueue_ticket_initial_debounce</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">300</span><span class="w"> </span><span class="c1"># Initial debounce seconds after first ticket event</span>
+<span class="w">    </span><span class="nt">agent_timed_scan_interval</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">3600</span><span class="w"> </span><span class="c1"># Timed scanner execution interval</span>
+<span class="w">    </span><span class="nt">agent_timed_scan_project_cooldown</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">86400</span><span class="w"> </span><span class="c1"># Cooldown before re-scanning the same project</span>
 </code></pre></div>
 <h2 id="seaqa-events-settings">seaqa-events settings<a class="headerlink" href="#seaqa-events-settings" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code><span class="nt">seaqa-events</span><span class="p">:</span>

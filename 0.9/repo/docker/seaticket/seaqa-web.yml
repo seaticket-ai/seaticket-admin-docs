@@ -1,14 +1,13 @@
 services:
   seaqa-web:
-    image: ${SEAQA_WEB_IMAGE:-seaticket/seaqa-web:0.1.0-testing}
+    image: ${SEAQA_WEB_IMAGE:-docker.seafile.top/seafileltd/seaqa-web:0.2.0-testing}
     restart: unless-stopped
     container_name: seaqa-web
     # ports:
     #   - 80:80
     volumes:
-      - ./conf/seaticket_config.yaml:/opt/seaticket/conf/seaticket_config:ro
-      - ./conf/seaqa_web_settings.py:/opt/seaticket/conf/seaqa_web_settings.py
-      - ${SEATICKET_VOLUME:-/opt/seaticket-data}:/shared
+      - /opt/seaticket/seaticket-data/conf:/opt/seaticket/conf
+      - ${SEATICKET_VOLUME:-/opt/seaticket/seaticket-data}:/shared
     environment:
       - SEAQA_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
       - TZ=${TIME_ZONE:-UTC}

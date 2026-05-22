@@ -1,13 +1,13 @@
 services:
   seaqa-ai:
-    image: ${SEAQA_AI_IMAGE:-seaticket/seaqa-ai:0.1.0-testing}
+    image: ${SEAQA_AI_IMAGE:-docker.seafile.top/seafileltd/seaqa-ai:0.2.0-testing}
     restart: unless-stopped
     container_name: seaqa-ai
     ports:
       - 8887:8887
     volumes:
-      - ./conf/seaticket_config:/opt/seaticket/conf/seaticket_config:ro
-      - ${SEATICKET_VOLUME:-/opt/seaticket-data}:/shared
+      - /opt/seaticket/seaticket-data/conf:/opt/seaticket/conf
+      - ${SEATICKET_VOLUME:-/opt/seaticket/seaticket-data}:/shared
     environment:
       - SEAQA_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
       - TZ=${TIME_ZONE:-UTC}

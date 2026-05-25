@@ -166,6 +166,23 @@ global:
     price: 0.02 # dollars / 1 M input tokens, required only need to specify this when you need to track user token usage.
 ```
 
+### Thought process
+
+The thought process is used to display detailed debug information about LLM calls, including system prompts, context, tool call history, and cost statistics. It will be displayed in the project's Chat and Agent modules.
+
+```yml
+global:
+  THOUGHT_PROCESS: # Configure which content to record in the thought process.
+    enabled: false # set to `true` to record in the thought process (global switcher)
+    tasks:
+      enabled: true
+      system_prompt: false
+      user_input: true
+      user_input_raw: false
+    context: false
+    tool_details: false
+```
+
 ## seaqa-ai settings
 
 The following are the default values, normally, you don't need to make any additional settings for this part
@@ -176,14 +193,6 @@ seaqa-ai:
   COMPLETION_RETRY_INTERVAL: 0.0 # Retry interval when AI chating completion fails
   TOOL_CALL_MAX_RETRIES: 2 # Maximum number of executing tool retries with LLM
   TOOL_CALL_RETRY_INTERVAL: 1.0 # Retry interval when tool executes fails
-  THOUGHT_PROCESS: # Configure which content to record in the thought process.
-    tasks:
-      enabled: true
-      system_prompt: false
-      user_input: true
-      user_input_raw: false
-    context: false
-    tool_details: false
   AI_UTILS_TIER: # The tier level required to configure AI functionality (must be one of `low`, `medium`, and `high`) will be matched in `LLM_MODELS`.
     generate_ticket: low
     generate_summary: low

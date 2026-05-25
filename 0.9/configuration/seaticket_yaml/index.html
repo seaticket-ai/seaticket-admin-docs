@@ -924,6 +924,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#thought-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thought process
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1338,6 +1349,17 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#thought-process" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Thought process
+      
+    </span>
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1541,6 +1563,19 @@
 <span class="w">    </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">embedding_model_secret_key</span><span class="w"> </span><span class="c1"># required for non-self deployment LLM server (including OpenAI-proxy)</span>
 <span class="w">    </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.02</span><span class="w"> </span><span class="c1"># dollars / 1 M input tokens, required only need to specify this when you need to track user token usage.</span>
 </code></pre></div>
+<h3 id="thought-process">Thought process<a class="headerlink" href="#thought-process" title="Permanent link">&para;</a></h3>
+<p>The thought process is used to display detailed debug information about LLM calls, including system prompts, context, tool call history, and cost statistics. It will be displayed in the project's Chat and Agent modules.</p>
+<div class="highlight"><pre><span></span><code>global:
+  THOUGHT_PROCESS: # Configure which content to record in the thought process.
+    enabled: false # set to `true` to record in the thought process (global switcher)
+    tasks:
+      enabled: true
+      system_prompt: false
+      user_input: true
+      user_input_raw: false
+    context: false
+    tool_details: false
+</code></pre></div>
 <h2 id="seaqa-ai-settings">seaqa-ai settings<a class="headerlink" href="#seaqa-ai-settings" title="Permanent link">&para;</a></h2>
 <p>The following are the default values, normally, you don't need to make any additional settings for this part</p>
 <div class="highlight"><pre><span></span><code><span class="nt">seaqa-ai</span><span class="p">:</span>
@@ -1548,14 +1583,6 @@
 <span class="w">  </span><span class="nt">COMPLETION_RETRY_INTERVAL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span><span class="w"> </span><span class="c1"># Retry interval when AI chating completion fails</span>
 <span class="w">  </span><span class="nt">TOOL_CALL_MAX_RETRIES</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">2</span><span class="w"> </span><span class="c1"># Maximum number of executing tool retries with LLM</span>
 <span class="w">  </span><span class="nt">TOOL_CALL_RETRY_INTERVAL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.0</span><span class="w"> </span><span class="c1"># Retry interval when tool executes fails</span>
-<span class="w">  </span><span class="nt">THOUGHT_PROCESS</span><span class="p">:</span><span class="w"> </span><span class="c1"># Configure which content to record in the thought process.</span>
-<span class="w">    </span><span class="nt">tasks</span><span class="p">:</span>
-<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">system_prompt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">      </span><span class="nt">user_input</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
-<span class="w">      </span><span class="nt">user_input_raw</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
-<span class="w">    </span><span class="nt">tool_details</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 <span class="w">  </span><span class="nt">AI_UTILS_TIER</span><span class="p">:</span><span class="w"> </span><span class="c1"># The tier level required to configure AI functionality (must be one of `low`, `medium`, and `high`) will be matched in `LLM_MODELS`.</span>
 <span class="w">    </span><span class="nt">generate_ticket</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">low</span>
 <span class="w">    </span><span class="nt">generate_summary</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">low</span>

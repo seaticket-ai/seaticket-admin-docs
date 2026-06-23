@@ -83,4 +83,3 @@ You only need to make sure that:
 - `NOTIFICATION_SERVER_URL` points to `/ws` on the same public host.
 - `seaqa-notification` can access the same Redis and `JWT_PRIVATE_KEY` as the other SeaTicket services.
 
-No extra `nginx` configuration is required for Docker deployments. The `/ws` route is handled by Caddy labels in `seaqa-notification.yml`.

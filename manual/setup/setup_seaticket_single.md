@@ -44,7 +44,7 @@ SOURCE /tmp/mysql.sql;
 To deploy SeaTicket with Docker, you have to `.env`, `caddy.yml`, `seaqa-web.yml`, `seaqa-indexer.yml`, `seaqa-ai.yml`, `seaqa-events.yml`, `seaqa-notification.yml`, and `seaticket_config.yaml` in a directory (e.g., `/opt/seaticket`):
 
 ```bash
-mkdir -p /opt/seaticket/seaticket-data/conf
+mkdir -p /opt/seaticket/conf
 cd /opt/seaticket
 
 wget -O .env https://manual.seaticket.ai/0.9/repo/docker/seaticket/env
@@ -55,7 +55,7 @@ wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-ai.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-events.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-notification.yml
 
-cd /opt/seaticket/seaticket-data/conf
+cd /opt/seaticket/conf
 wget https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket_config.yaml
 ```
 
@@ -146,14 +146,13 @@ Placeholder spot for shared volumes. You may elect to store certain persistent i
 ### Path `/opt/seadb-data`
 
 * /opt/seadb-data: This is the directory for seaticket server configuration and data.
-    * /opt/seadb-data/logs: This is the directory that would contain the log files of SeaDB server processes. For example, you can find seadb logs in `/opt/seadb-data/logs/seadb.log`.
+    * /opt/seaticket-data/logs: This is the directory that would contain the log files of seaticket server processes. For example, you can find seadb logs in `/opt/seadb/logs/seadb.log`.
 
-### Path `/opt/seaticket/seaticket-data`
+### Path `/opt/seaticket-data`
 
-* /opt/seaticket/seaticket-data: This is the directory for seaticket server configuration and data.
-    * /opt/seaticket/seaticket-data/conf: This is the directory that contains `seaticket_config.yaml`.
-    * /opt/seaticket/seaticket-data/logs: This is the directory that would contain the log files of seaticket server processes. For example, you can find seaqa-web logs in `/opt/seaticket/seaticket-data/logs/seaqa-web.log`.
-    * /opt/seaticket/seaticket-data/seaqa-web-data: This is the directory that would contain the avatar files of seaticket server processes.
+* /opt/seaticket-data: This is the directory for seaticket server configuration and data.
+    * /opt/seaticket-data/logs: This is the directory that would contain the log files of seaticket server processes. For example, you can find seaqa-web logs in `/opt/seaticket/logs/seaqa-web.log`.
+    * /opt/seaticket-data/seaqa-web-data: This is the directory that would contain the avatar files of seaticket server processes.
 
 ## Find logs
 
@@ -171,10 +170,10 @@ docker compose logs seaqa-web --follow
 docker compose --env-file /path/to/.env logs seaqa-web --follow
 ```
 
-The SeaTicket logs are under `/shared/logs` in the docker, or `/opt/seaticket/seaticket-data/logs` on the server that runs the docker.
+The SeaTicket logs are under `/shared/logs` in the docker, or `/opt/seaticket/logs` in the server that run the docker.
 
 To monitor all SeaTicket logs simultaneously (from outside of the container), run
 
 ```bash
-sudo tail -f $(find /opt/seaticket/seaticket-data/logs/ -type f -name *.log 2>/dev/null)
+sudo tail -f $(find /opt/seaticket/logs/ -type f -name *.log 2>/dev/null)
 ```

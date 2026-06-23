@@ -35,6 +35,14 @@ The `.env` file will be used to specify the general settings of the components u
 | `REDIS_PORT`                    | The port of Redis server                                                                                      | `6379`                          |
 | `REDIS_PASSWORD`                | The password of Redis server                                                                                  | (none)                          |
 
+## Notification Settings
+| Variable                        | Description                                                                                                   | Default Value                   |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------- |
+| `ENABLE_NOTIFICATION_SERVER`    | Enable the WebSocket notification client in `seaqa-web`                                                       | `false`                         |
+| `NOTIFICATION_SERVER_URL`       | Public WebSocket URL used by the browser, for example `ws://seaticket.example.com/ws` or `wss://seaticket.example.com/ws` | (none)                          |
+| `SEAQA_NOTIFICATION_LISTEN_HOST`| Listen host for `seaqa-notification`                                                                          | `0.0.0.0`                       |
+| `SEAQA_NOTIFICATION_LISTEN_PORT`| Listen port for `seaqa-notification`                                                                          | `8083`                          |
+
 ## S3 Settings
 | Variable                        | Description                                                                                                   | Default Value                   |  
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------- |

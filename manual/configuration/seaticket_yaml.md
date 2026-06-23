@@ -15,6 +15,8 @@ seaqa-events:
   # ... special configurations for seaqa-events
 seaqa-indexer:
   # ... special configurations for seaqa-indexer
+seaqa-notification:
+  # ... special configurations for seaqa-notification
 seaqa-web:
   # ... special configurations for seaqa-web
 ```
@@ -224,4 +226,26 @@ seaqa-ai:
 seaqa-events:
   AI_STATS: # optional
     enabled: true # Enable AI tokens usage statistics (default is `true`)
+```
+
+## seaqa-web notification settings
+
+The Docker examples set these values through `.env`. If the same key exists in both the environment and `seaticket_config.yaml`, the environment value takes precedence.
+
+```yaml
+seaqa-web:
+  ENABLE_NOTIFICATION_SERVER: false
+  NOTIFICATION_SERVER_URL: ws://seaticket.example.com/ws
+```
+
+Use `wss://.../ws` if SeaTicket is exposed over HTTPS.
+
+## seaqa-notification settings
+
+`seaqa-notification` reuses the global Redis and `JWT_PRIVATE_KEY` settings. The Docker examples set the listen address through `.env`; the component-specific YAML configuration is only needed when these environment variables are not set:
+
+```yaml
+seaqa-notification:
+  SEAQA_NOTIFICATION_LISTEN_HOST: 0.0.0.0
+  SEAQA_NOTIFICATION_LISTEN_PORT: 8083
 ```

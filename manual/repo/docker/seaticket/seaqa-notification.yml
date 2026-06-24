@@ -1,6 +1,6 @@
 services:
   seaqa-notification:
-    image: ${SEAQA_NOTIFICATION_IMAGE:-docker.seafile.top/seafileltd/seaqa-notification:0.2.0-testing}
+    image: ${SEAQA_NOTIFICATION_IMAGE:-docker.seafile.top/seafileltd/seaqa-notification:1.4.0-testing}
     restart: unless-stopped
     container_name: seaqa-notification
     ports:

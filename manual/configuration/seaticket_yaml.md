@@ -230,10 +230,9 @@ seaqa-events:
 
 ## seaqa-web notification settings
 
-The Docker examples set these values through `.env`. If the same key exists in both the environment and `seaticket_config.yaml`, the environment value takes precedence.
+The Docker examples set this value through `.env`.
 
 ```yaml
 seaqa-web:
   ENABLE_NOTIFICATION_SERVER: false
-  NOTIFICATION_SERVER_URL: https://seaticket.example.com/ws
 ```

@@ -53,7 +53,7 @@ Add the following settings:
 ENABLE_NOTIFICATION_SERVER=true
 ```
 
-By default, `seaqa-web.yml` generates `NOTIFICATION_SERVER_URL` for the current public SeaTicket host at `/ws`. You only need to set `NOTIFICATION_SERVER_URL` manually when the browser should access notification-server through a different public URL.
+`seaqa-web` connects to `/ws` on the current public SeaTicket host. This notification path is fixed and is not configured through `.env` or `seaticket_config.yaml`.
 
 ### Update `COMPOSE_FILE`
 

@@ -51,10 +51,9 @@ Add the following settings:
 
 ```env
 ENABLE_NOTIFICATION_SERVER=true
-NOTIFICATION_SERVER_URL=ws://<your seaticket host>/ws
 ```
 
-If SeaTicket is exposed over HTTPS, use `wss://<your seaticket host>/ws` instead.
+By default, `seaqa-web.yml` generates `NOTIFICATION_SERVER_URL` for the current public SeaTicket host at `/ws`. You only need to set `NOTIFICATION_SERVER_URL` manually when the browser should access notification-server through a different public URL.
 
 ### Update `COMPOSE_FILE`
 
@@ -76,5 +75,4 @@ In the Docker example, `seaqa-notification.yml` adds a Caddy path route for `/ws
 
 You only need to make sure that:
 
-- `NOTIFICATION_SERVER_URL` points to `/ws` on the same public host.
 - `seaqa-notification` can access the same Redis and `JWT_PRIVATE_KEY` as the other SeaTicket services.

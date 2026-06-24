@@ -23,10 +23,10 @@ The `.env` file will be used to specify the general settings of the components u
 ## Mysql Settings
 | Variable                        | Description                                                                                                   | Default Value                   |  
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------- |
-| `SEATICKET_MYSQL_DB_HOST`           | The host of MySQL server                                                                                      | (required)                      |
-| `SEATICKET_MYSQL_DB_PORT`           | The port of MySQL server                                                                                      | `3306`                          |
-| `SEATICKET_MYSQL_DB_USER`           | The user for accessing MySQL server                                                                           | `seaticket`                     |
-| `SEATICKET_MYSQL_DB_PASSWORD`       | The password of MySQL server                                                                                  | (none)                          |
+| `MYSQL_DB_HOST`           | The host of MySQL server                                                                                      | (required)                      |
+| `MYSQL_DB_PORT`           | The port of MySQL server                                                                                      | `3306`                          |
+| `MYSQL_DB_USER`           | The user for accessing MySQL server                                                                           | `seaticket`                     |
+| `MYSQL_DB_PASSWORD`       | The password of MySQL server                                                                                  | (none)                          |
 
 ## Redis Settings
 | Variable                        | Description                                                                                                   | Default Value                   |  
@@ -39,7 +39,6 @@ The `.env` file will be used to specify the general settings of the components u
 | Variable                        | Description                                                                                                   | Default Value                   |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | `ENABLE_NOTIFICATION_SERVER`    | Enable the WebSocket notification client in `seaqa-web`                                                       | `false`                         |
-| `NOTIFICATION_SERVER_URL`       | Public WebSocket URL used by the browser, for example `ws://seaticket.example.com/ws` or `wss://seaticket.example.com/ws` | (none)                          |
 
 ## S3 Settings
 | Variable                        | Description                                                                                                   | Default Value                   |  

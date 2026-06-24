@@ -235,7 +235,5 @@ The Docker examples set these values through `.env`. If the same key exists in b
 ```yaml
 seaqa-web:
   ENABLE_NOTIFICATION_SERVER: false
-  NOTIFICATION_SERVER_URL: ws://seaticket.example.com/ws
+  NOTIFICATION_SERVER_URL: https://seaticket.example.com/ws
 ```
-
-Use `wss://.../ws` if SeaTicket is exposed over HTTPS.

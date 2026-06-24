@@ -685,6 +685,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../setup/setup_notification_server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notification Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -973,6 +1001,17 @@
     <span class="md-ellipsis">
       
         seaqa-events settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#seaqa-web-notification-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        seaqa-web notification settings
       
     </span>
   </a>
@@ -1404,6 +1443,17 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#seaqa-web-notification-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        seaqa-web notification settings
+      
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1436,6 +1486,8 @@
 <span class="w">  </span><span class="c1"># ... special configurations for seaqa-events</span>
 <span class="nt">seaqa-indexer</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># ... special configurations for seaqa-indexer</span>
+<span class="nt">seaqa-notification</span><span class="p">:</span>
+<span class="w">  </span><span class="c1"># ... special configurations for seaqa-notification</span>
 <span class="nt">seaqa-web</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># ... special configurations for seaqa-web</span>
 </code></pre></div>
@@ -1445,9 +1497,9 @@
 <p>In cluster mode, you need to specify the URLs used for internal communication between components via <code>seaticket_config.yaml</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="nt">global</span><span class="p">:</span>
 <span class="w">  </span><span class="c1"># ... other configurations</span>
-<span class="w">  </span><span class="nt">SEAQA_AI_INNER_SERVER_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;your seaqa-ai server host&gt;:8887</span>
-<span class="w">  </span><span class="nt">SEAQA_INDEXER_INNER_SERVER_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;your seaqa-indexer server host&gt;:8888</span>
-<span class="w">  </span><span class="nt">SEAQA_EVENTS_INNER_SERVER_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;your seaqa-events server host&gt;:6001</span>
+<span class="w">  </span><span class="nt">SEATICKET_AI_INNER_SERVER_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;your seaqa-ai server host&gt;:8887</span>
+<span class="w">  </span><span class="nt">SEATICKET_INDEXER_INNER_SERVER_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;your seaqa-indexer server host&gt;:8888</span>
+<span class="w">  </span><span class="nt">SEATICKET_EVENTS_INNER_SERVER_URL</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">http://&lt;your seaqa-events server host&gt;:6001</span>
 </code></pre></div>
 <h3 id="llms-configurations">LLMs configurations<a class="headerlink" href="#llms-configurations" title="Permanent link">&para;</a></h3>
 <div class="admonition warning">
@@ -1545,7 +1597,7 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<p>Seafile AI utilizes <a href="https://docs.litellm.ai/docs/">LiteLLM</a> to interact with LLM services. For a complete list of supported LLM providers, please refer to <a href="https://docs.litellm.ai/docs/providers">this documentation</a>. Then fill the following fields in your <code>seaticket_config.yaml</code>:</p>
+<p>SeaTicket AI utilizes <a href="https://docs.litellm.ai/docs/">LiteLLM</a> to interact with LLM services. For a complete list of supported LLM providers, please refer to <a href="https://docs.litellm.ai/docs/providers">this documentation</a>. Then fill the following fields in your <code>seaticket_config.yaml</code>:</p>
 <p>For example, if you are using a LLM service with <strong><em>OpenAI-compatible endpoints</em></strong>, you should set <code>type</code> to <code>other</code>, and set other LLM configuration items accurately.</p>
 </div>
 </div>
@@ -1608,6 +1660,11 @@
 <div class="highlight"><pre><span></span><code><span class="nt">seaqa-events</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">AI_STATS</span><span class="p">:</span><span class="w"> </span><span class="c1"># optional</span>
 <span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span><span class="w"> </span><span class="c1"># Enable AI tokens usage statistics (default is `true`)</span>
+</code></pre></div>
+<h2 id="seaqa-web-notification-settings">seaqa-web notification settings<a class="headerlink" href="#seaqa-web-notification-settings" title="Permanent link">&para;</a></h2>
+<p>The Docker examples set this value through <code>.env</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="nt">seaqa-web</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">ENABLE_NOTIFICATION_SERVER</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 
 

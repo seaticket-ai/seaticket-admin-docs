@@ -16,7 +16,7 @@
         <link rel="prev" href="../setup_seaticket_prequisites/">
       
       
-        <link rel="next" href="../../configuration/environment_variables/">
+        <link rel="next" href="../setup_notification_server/">
       
       
         
@@ -889,6 +889,34 @@
 
               
             
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../setup_notification_server/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notification Server
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
           </ul>
         </nav>
       
@@ -1475,6 +1503,7 @@
 <li>seaqa-ai</li>
 <li>seaqa-events</li>
 <li>seaqa-indexer</li>
+<li>seaqa-notification</li>
 </ul>
 <h2 id="getting-started">Getting started<a class="headerlink" href="#getting-started" title="Permanent link">&para;</a></h2>
 <h3 id="preparing-seaticket_db">Preparing seaticket_db<a class="headerlink" href="#preparing-seaticket_db" title="Permanent link">&para;</a></h3>
@@ -1487,7 +1516,7 @@
 
 <span class="c1"># then input the following commands</span>
 CREATE<span class="w"> </span>DATABASE<span class="w"> </span>seaticket_db<span class="w"> </span>CHARACTER<span class="w"> </span>SET<span class="w"> </span>utf8mb4<span class="p">;</span>
-CREATE<span class="w"> </span>USER<span class="w"> </span>seaticket@<span class="s1">&#39;%&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span>&lt;SEAQA_MYSQL_DB_PASSWORD&gt;<span class="p">;</span>
+CREATE<span class="w"> </span>USER<span class="w"> </span>seaticket@<span class="s1">&#39;%&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span>&lt;SEATICKET_MYSQL_DB_PASSWORD&gt;<span class="p">;</span>
 GRANT<span class="w"> </span>ALL<span class="w"> </span>PRIVILEGES<span class="w"> </span>ON<span class="w"> </span>seaticket_db.*<span class="w"> </span>TO<span class="w"> </span><span class="s1">&#39;seaticket&#39;</span>@<span class="s1">&#39;%&#39;</span><span class="p">;</span>
 FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span>
 
@@ -1495,7 +1524,7 @@ USE<span class="w"> </span>seaticket_db<span class="p">;</span>
 SOURCE<span class="w"> </span>/tmp/mysql.sql<span class="p">;</span>
 </code></pre></div>
 <h3 id="download-resource-files">Download resource files<a class="headerlink" href="#download-resource-files" title="Permanent link">&para;</a></h3>
-<p>To deploy SeaTicket with Docker, you have to <code>.env</code>, <code>caddy.yml</code>, <code>seaqa-web.yml</code>, <code>seaqa-indexer.yml</code>, <code>seaqa-ai.yml</code>, <code>seaqa-events.yml</code>, and <code>seaticket_config.yaml</code> in a directory (e.g., <code>/opt/seaticket</code>):</p>
+<p>To deploy SeaTicket with Docker, you have to <code>.env</code>, <code>caddy.yml</code>, <code>seaqa-web.yml</code>, <code>seaqa-indexer.yml</code>, <code>seaqa-ai.yml</code>, <code>seaqa-events.yml</code>, <code>seaqa-notification.yml</code>, and <code>seaticket_config.yaml</code> in a directory (e.g., <code>/opt/seaticket</code>):</p>
 <div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/seaticket/conf
 <span class="nb">cd</span><span class="w"> </span>/opt/seaticket
 
@@ -1505,6 +1534,7 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-indexer.yml
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-ai.yml
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-events.yml
+wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-notification.yml
 
 <span class="nb">cd</span><span class="w"> </span>/opt/seaticket/conf
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket_config.yaml
@@ -1541,6 +1571,11 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 <td>(required)</td>
 </tr>
 <tr>
+<td><code>ENABLE_NOTIFICATION_SERVER</code></td>
+<td>Enable the WebSocket notification client in seaqa-web</td>
+<td><code>false</code></td>
+</tr>
+<tr>
 <td><code>SEADB_SERVER_URL</code></td>
 <td>SeaDB server URL</td>
 <td><code>http://seadb</code></td>
@@ -1561,22 +1596,22 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 <td>(required)</td>
 </tr>
 <tr>
-<td><code>SEAQA_MYSQL_DB_HOST</code></td>
+<td><code>MYSQL_DB_HOST</code></td>
 <td>The host of MySQL server</td>
 <td>(required)</td>
 </tr>
 <tr>
-<td><code>SEAQA_MYSQL_DB_PORT</code></td>
+<td><code>MYSQL_DB_PORT</code></td>
 <td>The port of MySQL server</td>
 <td><code>3306</code></td>
 </tr>
 <tr>
-<td><code>SEAQA_MYSQL_DB_USER</code></td>
+<td><code>MYSQL_DB_USER</code></td>
 <td>The user for accessing MySQL server</td>
 <td><code>seaticket</code></td>
 </tr>
 <tr>
-<td><code>SEAQA_MYSQL_DB_PASSWORD</code></td>
+<td><code>MYSQL_DB_PASSWORD</code></td>
 <td>The password of MySQL server</td>
 <td>(none)</td>
 </tr>
@@ -1621,7 +1656,7 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 <td>(required)</td>
 </tr>
 <tr>
-<td><code>SEAQA_LOG_TO_STDOUT</code></td>
+<td><code>SEATICKET_LOG_TO_STDOUT</code></td>
 <td>Record logs to container standard output</td>
 <td><code>false</code></td>
 </tr>
@@ -1647,7 +1682,8 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 <p>Enter the username and password according to the prompts. You now have a new admin account.</p>
 <p>Finally, you can go to <code>http://seaticket.example.com</code> to use SeaTicket.</p>
 <h2 id="deploy-other-components">Deploy other components<a class="headerlink" href="#deploy-other-components" title="Permanent link">&para;</a></h2>
-<p>You can deploy other components of SeaTicket, such as seaqa-ai, seaqa-events, seaqa-indexer.</p>
+<p>You can deploy other components of SeaTicket, such as seaqa-ai, seaqa-events, seaqa-indexer, and seaqa-notification.</p>
+<p>For <code>seaqa-notification</code>, including reverse proxy settings for <code>/ws</code>, please refer to <a href="../setup_notification_server/">Setup Notification Server</a>.</p>
 <p>Copy <code>/opt/seaticket</code> to other machines.</p>
 <p>Modify <code>COMPOSE_FILE</code> in <code>.env</code> file:</p>
 <div class="highlight"><pre><span></span><code>COMPOSE_FILE=&#39;seaqa-ai.yml&#39;
@@ -1740,13 +1776,13 @@ docker<span class="w"> </span>compose<span class="w"> </span>--env-file<span cla
         
         
           
-          <a href="../../configuration/environment_variables/" class="md-footer__link md-footer__link--next" aria-label="Next: Environment Variables">
+          <a href="../setup_notification_server/" class="md-footer__link md-footer__link--next" aria-label="Next: Notification Server">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Environment Variables
+                Notification Server
               </div>
             </div>
             <div class="md-footer__button md-icon">

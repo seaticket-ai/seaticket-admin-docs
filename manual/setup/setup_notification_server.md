@@ -1,8 +1,6 @@
 # Setup Notification Server
 
-`seaqa-notification` is the WebSocket service used to deliver connection sync results to the browser in real time.
-
-When a connection finishes syncing for the first time, SeaTicket can show a success or failure notification immediately in the project page.
+`seaqa-notification` is the WebSocket service used to deliver realtime notifications to the browser, including connection syncing events, user notifications.
 
 ## Workflow
 
@@ -54,8 +52,6 @@ Add the following settings:
 ```env
 ENABLE_NOTIFICATION_SERVER=true
 NOTIFICATION_SERVER_URL=ws://<your seaticket host>/ws
-SEAQA_NOTIFICATION_LISTEN_HOST=0.0.0.0
-SEAQA_NOTIFICATION_LISTEN_PORT=8083
 ```
 
 If SeaTicket is exposed over HTTPS, use `wss://<your seaticket host>/ws` instead.
@@ -82,4 +78,3 @@ You only need to make sure that:
 
 - `NOTIFICATION_SERVER_URL` points to `/ws` on the same public host.
 - `seaqa-notification` can access the same Redis and `JWT_PRIVATE_KEY` as the other SeaTicket services.
-

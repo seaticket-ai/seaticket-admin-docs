@@ -239,13 +239,3 @@ seaqa-web:
 ```
 
 Use `wss://.../ws` if SeaTicket is exposed over HTTPS.
-
-## seaqa-notification settings
-
-`seaqa-notification` reuses the global Redis and `JWT_PRIVATE_KEY` settings. The Docker examples set the listen address through `.env`; the component-specific YAML configuration is only needed when these environment variables are not set:
-
-```yaml
-seaqa-notification:
-  SEAQA_NOTIFICATION_LISTEN_HOST: 0.0.0.0
-  SEAQA_NOTIFICATION_LISTEN_PORT: 8083
-```

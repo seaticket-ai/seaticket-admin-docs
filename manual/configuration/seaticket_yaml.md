@@ -148,7 +148,7 @@ global:
         key: <your huggingface API key>
     ```
 === "Other"
-    Seafile AI utilizes [LiteLLM](https://docs.litellm.ai/docs/) to interact with LLM services. For a complete list of supported LLM providers, please refer to [this documentation](https://docs.litellm.ai/docs/providers). Then fill the following fields in your `seaticket_config.yaml`:
+    SeaTicket AI utilizes [LiteLLM](https://docs.litellm.ai/docs/) to interact with LLM services. For a complete list of supported LLM providers, please refer to [this documentation](https://docs.litellm.ai/docs/providers). Then fill the following fields in your `seaticket_config.yaml`:
 
     For example, if you are using a LLM service with ***OpenAI-compatible endpoints***, you should set `type` to `other`, and set other LLM configuration items accurately.
 

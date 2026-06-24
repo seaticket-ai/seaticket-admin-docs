@@ -31,7 +31,7 @@ mysql -u root -p
 
 # then input the following commands
 CREATE DATABASE seaticket_db CHARACTER SET utf8mb4;
-CREATE USER seaticket@'%' IDENTIFIED BY <SEAQA_MYSQL_DB_PASSWORD>;
+CREATE USER seaticket@'%' IDENTIFIED BY <SEATICKET_MYSQL_DB_PASSWORD>;
 GRANT ALL PRIVILEGES ON seaticket_db.* TO 'seaticket'@'%';
 FLUSH PRIVILEGES;
 
@@ -75,10 +75,10 @@ The following fields merit particular attention:
 | `SEADB_SERVER_ACCESS_TOEKN` | Access token for SeaDB server, should be the same as the value in the `.env` for deploying SeaDB                                                             | (required)                      |
 | `SEASEARCH_URL`  | Your SeaSearch server API endpoint url, e.g., `http://<your seasearch host>:4080`                                                                            | (required)                      |
 | `SEASEARCH_TOKEN` | Your authorization token for accessing SeaSearch API, which can be constructed in `echo -n '<your_seasearch_username>:<your_seasearch_password>'             | base64` | (required)                      |
-| `SEAQA_MYSQL_DB_HOST` | The host of MySQL server                                                                                                                                     | (required)                      |
-| `SEAQA_MYSQL_DB_PORT` | The port of MySQL server                                                                                                                                     | `3306`                          |
-| `SEAQA_MYSQL_DB_USER` | The user for accessing MySQL server                                                                                                                          | `seaticket`                     |
-| `SEAQA_MYSQL_DB_PASSWORD` | The password of MySQL server                                                                                                                                 | (none)                          |
+| `SEATICKET_MYSQL_DB_HOST` | The host of MySQL server                                                                                                                                     | (required)                      |
+| `SEATICKET_MYSQL_DB_PORT` | The port of MySQL server                                                                                                                                     | `3306`                          |
+| `SEATICKET_MYSQL_DB_USER` | The user for accessing MySQL server                                                                                                                          | `seaticket`                     |
+| `SEATICKET_MYSQL_DB_PASSWORD` | The password of MySQL server                                                                                                                                 | (none)                          |
 | `REDIS_HOST`     | The host of Redis server                                                                                                                                     | (required)                      |
 | `REDIS_PORT`     | The port of Redis server                                                                                                                                     | `6379`                          |
 | `REDIS_PASSWORD` | The password of Redis server                                                                                                                                 | (none)                          |
@@ -87,7 +87,7 @@ The following fields merit particular attention:
 | `S3_SECRET_KEY`  | S3 storage backend secret key                                                                                                                                | (required)                      |
 | `S3_FILE_BUCKET` | Name of the bucket for saving upload files                                                                                                                   | (required)                      |
 | `S3_WEB_CRAWL_BUCKET` | Name of the bucket for saving web-crawl data                                                                                                                 | (required)                      |
-| `SEAQA_LOG_TO_STDOUT` | Record logs to container standard output                                                                                                                     | `false`                         |
+| `SEATICKET_LOG_TO_STDOUT` | Record logs to container standard output                                                                                                                     | `false`                         |
 | `TIME_ZONE`      | Timezone of SeaTicket server                                                                                                                                 | `UTC`                      |
 
 ### Modify `seaticket_config.yaml` and add LLM models configuration

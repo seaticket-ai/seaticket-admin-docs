@@ -32,9 +32,9 @@ In cluster mode, you need to specify the URLs used for internal communication be
 ```yaml
 global:
   # ... other configurations
-  SEAQA_AI_INNER_SERVER_URL: http://<your seaqa-ai server host>:8887
-  SEAQA_INDEXER_INNER_SERVER_URL: http://<your seaqa-indexer server host>:8888
-  SEAQA_EVENTS_INNER_SERVER_URL: http://<your seaqa-events server host>:6001
+  SEATICKET_AI_INNER_SERVER_URL: http://<your seaqa-ai server host>:8887
+  SEATICKET_INDEXER_INNER_SERVER_URL: http://<your seaqa-indexer server host>:8888
+  SEATICKET_EVENTS_INNER_SERVER_URL: http://<your seaqa-events server host>:6001
 ```
 
 ### LLMs configurations

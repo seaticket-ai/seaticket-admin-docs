@@ -92,6 +92,7 @@ nav:
     - SeaTicket:
       - Setup prequisites: setup/setup_seaticket_prequisites.md
       - Setup SeaTicket: setup/setup_seaticket_single.md
+      - Notification Server: setup/setup_notification_server.md
   - Configuration:
     - Environment Variables: configuration/environment_variables.md
     - seaticket_config.yaml: configuration/seaticket_yaml.md

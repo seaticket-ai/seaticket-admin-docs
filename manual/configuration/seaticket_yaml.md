@@ -15,6 +15,8 @@ seaqa-events:
   # ... special configurations for seaqa-events
 seaqa-indexer:
   # ... special configurations for seaqa-indexer
+seaqa-notification:
+  # ... special configurations for seaqa-notification
 seaqa-web:
   # ... special configurations for seaqa-web
 ```
@@ -30,9 +32,9 @@ In cluster mode, you need to specify the URLs used for internal communication be
 ```yaml
 global:
   # ... other configurations
-  SEAQA_AI_INNER_SERVER_URL: http://<your seaqa-ai server host>:8887
-  SEAQA_INDEXER_INNER_SERVER_URL: http://<your seaqa-indexer server host>:8888
-  SEAQA_EVENTS_INNER_SERVER_URL: http://<your seaqa-events server host>:6001
+  SEATICKET_AI_INNER_SERVER_URL: http://<your seaqa-ai server host>:8887
+  SEATICKET_INDEXER_INNER_SERVER_URL: http://<your seaqa-indexer server host>:8888
+  SEATICKET_EVENTS_INNER_SERVER_URL: http://<your seaqa-events server host>:6001
 ```
 
 ### LLMs configurations
@@ -146,7 +148,7 @@ global:
         key: <your huggingface API key>
     ```
 === "Other"
-    Seafile AI utilizes [LiteLLM](https://docs.litellm.ai/docs/) to interact with LLM services. For a complete list of supported LLM providers, please refer to [this documentation](https://docs.litellm.ai/docs/providers). Then fill the following fields in your `seaticket_config.yaml`:
+    SeaTicket AI utilizes [LiteLLM](https://docs.litellm.ai/docs/) to interact with LLM services. For a complete list of supported LLM providers, please refer to [this documentation](https://docs.litellm.ai/docs/providers). Then fill the following fields in your `seaticket_config.yaml`:
 
     For example, if you are using a LLM service with ***OpenAI-compatible endpoints***, you should set `type` to `other`, and set other LLM configuration items accurately.
 
@@ -224,4 +226,13 @@ seaqa-ai:
 seaqa-events:
   AI_STATS: # optional
     enabled: true # Enable AI tokens usage statistics (default is `true`)
+```
+
+## seaqa-web notification settings
+
+The Docker examples set this value through `.env`.
+
+```yaml
+seaqa-web:
+  ENABLE_NOTIFICATION_SERVER: false
 ```

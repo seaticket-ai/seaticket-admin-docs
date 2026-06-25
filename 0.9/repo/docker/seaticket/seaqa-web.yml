@@ -1,6 +1,6 @@
 services:
   seaqa-web:
-    image: ${SEAQA_WEB_IMAGE:-docker.seafile.top/seafileltd/seaqa-web:0.2.0-testing}
+    image: ${SEATICKET_WEB_IMAGE:-docker.seafile.top/seafileltd/seaqa-web:0.2.0-testing}
     restart: unless-stopped
     container_name: seaqa-web
     # ports:
@@ -9,7 +9,7 @@ services:
       - /opt/seaticket/seaticket-data/conf:/opt/seaticket/conf
       - ${SEATICKET_VOLUME:-/opt/seaticket/seaticket-data}:/shared
     environment:
-      - SEAQA_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
+      - LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
       - TZ=${TIME_ZONE:-UTC}
       - JWT_PRIVATE_KEY=${JWT_PRIVATE_KEY:?Variable is not set or empty}
       - SECRET_KEY=${SECRET_KEY:?Variable is not set or empty}
@@ -18,13 +18,13 @@ services:
       - ENABLE_NOTIFICATION_SERVER=${ENABLE_NOTIFICATION_SERVER:-false}
       - SEADB_SERVER_URL=${SEADB_SERVER_URL:-seadb}
       - SEADB_SERVER_ACCESS_TOKEN=${SEADB_SERVER_ACCESS_TOKEN:?Variable is not set or empty}
-      - SEAQA_CONFIG_NAME=${SEAQA_CONFIG_NAME:-seaticket_config.yaml}
+      - SEATICKET_CONFIG_NAME=${SEATICKET_CONFIG_NAME:-seaticket_config.yaml}
       - CONF_PATH=${CONF_PATH:-/opt/seaticket/conf}
-      - SEAQA_MYSQL_DB_HOST=${SEAQA_MYSQL_DB_HOST:?Variable is not set or empty}
-      - SEAQA_MYSQL_DB_PORT=${SEAQA_MYSQL_DB_PORT:-3306}
-      - SEAQA_MYSQL_DB_USER=${SEAQA_MYSQL_DB_USER:-seaticket}
-      - SEAQA_MYSQL_DB_PASSWORD=${SEAQA_MYSQL_DB_PASSWORD:-}
-      - SEAQA_MYSQL_SEAQA_DB_NAME=${SEAQA_MYSQL_SEAQA_DB_NAME:-seaticket_db}
+      - MYSQL_DB_HOST=${MYSQL_DB_HOST:?Variable is not set or empty}
+      - MYSQL_DB_PORT=${MYSQL_DB_PORT:-3306}
+      - MYSQL_DB_USER=${MYSQL_DB_USER:-seaticket}
+      - MYSQL_DB_PASSWORD=${MYSQL_DB_PASSWORD:-}
+      - MYSQL_DB_NAME=${MYSQL_DB_NAME:-seaticket_db}
       - REDIS_HOST=${REDIS_HOST:?Variable is not set or empty}
       - REDIS_PORT=${REDIS_PORT:-6379}
       - REDIS_PASSWORD=${REDIS_PASSWORD:-}

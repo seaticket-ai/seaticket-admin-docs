@@ -854,10 +854,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#path-optseaticket-data" class="md-nav__link">
+  <a href="#path-optseaticketseaticket-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Path /opt/seaticket-data
+        Path /opt/seaticket/seaticket-data
       
     </span>
   </a>
@@ -1446,10 +1446,10 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#path-optseaticket-data" class="md-nav__link">
+  <a href="#path-optseaticketseaticket-data" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Path /opt/seaticket-data
+        Path /opt/seaticket/seaticket-data
       
     </span>
   </a>
@@ -1496,7 +1496,7 @@
 <p>The following assumptions and conventions are used in the rest of this document</p>
 <ul>
 <li><code>/opt/seaticket</code> is the directory for store SeaTicket docker compose files. If you decide to put SeaTicket in a different directory — which you can — adjust all paths accordingly.</li>
-<li>SeaTicket uses some <a href="https://docs.docker.com/storage/volumes/">Docker volumes</a> for persisting data generated in its database and SeaTicket Docker container. The volumes' <a href="https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes">host paths</a> like <code>/opt/caddy-data</code> and <code>/opt/seaticket-data</code>, respectively. It is not recommended to change these paths. If you do, account for it when following these instructions.</li>
+<li>SeaTicket uses some <a href="https://docs.docker.com/storage/volumes/">Docker volumes</a> for persisting data generated in its database and SeaTicket Docker container. The volumes' <a href="https://docs.docker.com/compose/compose-file/compose-file-v3/#volumes">host paths</a> like <code>/opt/caddy-data</code> and <code>/opt/seaticket/seaticket-data</code>, respectively. It is not recommended to change these paths. If you do, account for it when following these instructions.</li>
 <li>All configuration and log files for SeaTicket are stored in the volume of the SeaTicket container.</li>
 <li>SeaTicket contains following components, each packaged as a separate docker image:</li>
 <li>Caddy and seaqa-web</li>
@@ -1516,7 +1516,7 @@
 
 <span class="c1"># then input the following commands</span>
 CREATE<span class="w"> </span>DATABASE<span class="w"> </span>seaticket_db<span class="w"> </span>CHARACTER<span class="w"> </span>SET<span class="w"> </span>utf8mb4<span class="p">;</span>
-CREATE<span class="w"> </span>USER<span class="w"> </span>seaticket@<span class="s1">&#39;%&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span>&lt;SEATICKET_MYSQL_DB_PASSWORD&gt;<span class="p">;</span>
+CREATE<span class="w"> </span>USER<span class="w"> </span>seaticket@<span class="s1">&#39;%&#39;</span><span class="w"> </span>IDENTIFIED<span class="w"> </span>BY<span class="w"> </span>&lt;MYSQL_DB_PASSWORD&gt;<span class="p">;</span>
 GRANT<span class="w"> </span>ALL<span class="w"> </span>PRIVILEGES<span class="w"> </span>ON<span class="w"> </span>seaticket_db.*<span class="w"> </span>TO<span class="w"> </span><span class="s1">&#39;seaticket&#39;</span>@<span class="s1">&#39;%&#39;</span><span class="p">;</span>
 FLUSH<span class="w"> </span>PRIVILEGES<span class="p">;</span>
 
@@ -1525,7 +1525,7 @@ SOURCE<span class="w"> </span>/tmp/mysql.sql<span class="p">;</span>
 </code></pre></div>
 <h3 id="download-resource-files">Download resource files<a class="headerlink" href="#download-resource-files" title="Permanent link">&para;</a></h3>
 <p>To deploy SeaTicket with Docker, you have to <code>.env</code>, <code>caddy.yml</code>, <code>seaqa-web.yml</code>, <code>seaqa-indexer.yml</code>, <code>seaqa-ai.yml</code>, <code>seaqa-events.yml</code>, <code>seaqa-notification.yml</code>, and <code>seaticket_config.yaml</code> in a directory (e.g., <code>/opt/seaticket</code>):</p>
-<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/seaticket/conf
+<div class="highlight"><pre><span></span><code>mkdir<span class="w"> </span>-p<span class="w"> </span>/opt/seaticket/seaticket-data/conf
 <span class="nb">cd</span><span class="w"> </span>/opt/seaticket
 
 wget<span class="w"> </span>-O<span class="w"> </span>.env<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/env
@@ -1536,7 +1536,7 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-events.yml
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaqa-notification.yml
 
-<span class="nb">cd</span><span class="w"> </span>/opt/seaticket/conf
+<span class="nb">cd</span><span class="w"> </span>/opt/seaticket/seaticket-data/conf
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/seaticket_config.yaml
 </code></pre></div>
 <h3 id="modify-env">Modify .env<a class="headerlink" href="#modify-env" title="Permanent link">&para;</a></h3>
@@ -1656,7 +1656,7 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 <td>(required)</td>
 </tr>
 <tr>
-<td><code>SEATICKET_LOG_TO_STDOUT</code></td>
+<td><code>LOG_TO_STDOUT</code></td>
 <td>Record logs to container standard output</td>
 <td><code>false</code></td>
 </tr>
@@ -1696,15 +1696,15 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 <h3 id="path-optseadb-data">Path <code>/opt/seadb-data</code><a class="headerlink" href="#path-optseadb-data" title="Permanent link">&para;</a></h3>
 <ul>
 <li>/opt/seadb-data: This is the directory for seaticket server configuration and data.<ul>
-<li>/opt/seaticket-data/logs: This is the directory that would contain the log files of seaticket server processes. For example, you can find seadb logs in <code>/opt/seadb/logs/seadb.log</code>.</li>
+<li>/opt/seadb-data/logs: This is the directory that would contain the log files of seadb server processes. For example, you can find seadb logs in <code>/opt/seadb-data/logs/seadb.log</code>.</li>
 </ul>
 </li>
 </ul>
-<h3 id="path-optseaticket-data">Path <code>/opt/seaticket-data</code><a class="headerlink" href="#path-optseaticket-data" title="Permanent link">&para;</a></h3>
+<h3 id="path-optseaticketseaticket-data">Path <code>/opt/seaticket/seaticket-data</code><a class="headerlink" href="#path-optseaticketseaticket-data" title="Permanent link">&para;</a></h3>
 <ul>
-<li>/opt/seaticket-data: This is the directory for seaticket server configuration and data.<ul>
-<li>/opt/seaticket-data/logs: This is the directory that would contain the log files of seaticket server processes. For example, you can find seaqa-web logs in <code>/opt/seaticket/logs/seaqa-web.log</code>.</li>
-<li>/opt/seaticket-data/seaqa-web-data: This is the directory that would contain the avatar files of seaticket server processes.</li>
+<li>/opt/seaticket/seaticket-data: This is the directory for seaticket server configuration and data.<ul>
+<li>/opt/seaticket/seaticket-data/logs: This is the directory that would contain the log files of seaticket server processes. For example, you can find seaqa-web logs in <code>/opt/seaticket/seaticket-data/logs/seaqa-web.log</code>.</li>
+<li>/opt/seaticket/seaticket-data/seaqa-web-data: This is the directory that would contain the avatar files of seaticket server processes.</li>
 </ul>
 </li>
 </ul>
@@ -1720,9 +1720,9 @@ docker<span class="w"> </span>compose<span class="w"> </span>logs<span class="w"
 <span class="c1"># or, if the `.env` file is elsewhere:</span>
 docker<span class="w"> </span>compose<span class="w"> </span>--env-file<span class="w"> </span>/path/to/.env<span class="w"> </span>logs<span class="w"> </span>seaqa-web<span class="w"> </span>--follow
 </code></pre></div>
-<p>The SeaTicket logs are under <code>/shared/logs</code> in the docker, or <code>/opt/seaticket/logs</code> in the server that run the docker.</p>
+<p>The SeaTicket logs are under <code>/shared/logs</code> in the docker, or <code>/opt/seaticket/seaticket-data/logs</code> in the server that run the docker.</p>
 <p>To monitor all SeaTicket logs simultaneously (from outside of the container), run</p>
-<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>/opt/seaticket/logs/<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span>*.log<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span>
+<div class="highlight"><pre><span></span><code>sudo<span class="w"> </span>tail<span class="w"> </span>-f<span class="w"> </span><span class="k">$(</span>find<span class="w"> </span>/opt/seaticket/seaticket-data/logs/<span class="w"> </span>-type<span class="w"> </span>f<span class="w"> </span>-name<span class="w"> </span>*.log<span class="w"> </span><span class="m">2</span>&gt;/dev/null<span class="k">)</span>
 </code></pre></div>
 
 

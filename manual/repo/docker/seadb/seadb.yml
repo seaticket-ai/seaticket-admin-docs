@@ -9,7 +9,7 @@ services:
       - ./fdb.cluster:/etc/foundationdb/fdb.cluster
       - ${SEADB_VOLUME:-/opt/seadb-data}:/shared
     environment:
-      - SEAQA_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
+      - SEATICKET_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
       - TZ=${TIME_ZONE:-}
       - JWT_PRIVATE_KEY=${SEADB_SERVER_ACCESS_TOKEN:?Variable is not set or empty}
     networks:

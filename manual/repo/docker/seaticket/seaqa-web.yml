@@ -9,7 +9,7 @@ services:
       - /opt/seaticket/seaticket-data/conf:/opt/seaticket/conf
       - ${SEATICKET_VOLUME:-/opt/seaticket/seaticket-data}:/shared
     environment:
-      - SEATICKET_LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
+      - LOG_TO_STDOUT=${LOG_TO_STDOUT:-false}
       - TZ=${TIME_ZONE:-UTC}
       - JWT_PRIVATE_KEY=${JWT_PRIVATE_KEY:?Variable is not set or empty}
       - SECRET_KEY=${SECRET_KEY:?Variable is not set or empty}

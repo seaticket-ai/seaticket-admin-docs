@@ -224,6 +224,13 @@ ENABLE_SLIDE_CAPTCHA = False
 # Custom slide captcha image resource
 SLIDE_CAPTCHA_IMAGE_URL = ''
 
+# Enable Cloudflare Turnstile challenge
+ENABLE_TURNSTILE = False
+# Cloudflare Turnstile site key
+TURNSTILE_SITE_KEY = ''
+# Cloudflare Turnstile secret key
+TURNSTILE_SECRET_KEY = ''
+
 # Request throttle count within period
 REQUEST_RATE_LIMIT_NUMBER = 3
 # Request throttle period in seconds

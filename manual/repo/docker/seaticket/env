@@ -5,7 +5,6 @@ COMPOSE_PATH_SEPARATOR=','
 TIME_ZONE=UTC
 
 # SeaTicket server configuration
-SEATICKET_WEB_IMAGE=
 JWT_PRIVATE_KEY=
 SECRET_KEY=
 SEATICKET_SERVER_HOSTNAME=
@@ -13,7 +12,6 @@ SEATICKET_SERVER_PROTOCOL=http
 ENABLE_NOTIFICATION_SERVER=false
 
 # Portal routing values used by Docker Compose and Caddy.
-# PORTAL_SERVICE_ROOT_DOMAIN must match the value in seaticket_config.yaml.
 PORTAL_SERVICE_ROOT_DOMAIN=portal-seaticket.com
 PORTAL_CERTS_VOLUME=/opt/caddy-certs
 

@@ -54,7 +54,7 @@ global:
       label: 'display_name' # optional, display name on SeaTicket chat page, default to option `model` if not set
       hidden: false # optional, hidden on SeaTicket chat page but still can be used with API calling and other components, default to `false`
       disable: false # optional, disable this LLM, default to `false`
-      tier: # optional (must be one of `low`, `medium`, or `high`.), used to specify the inference strength of the model to facilitate invocation between different tasks. If two LLMs have the same `tier`, only the LLM that specifies that `tier` will be used, as specified by the first item in the `LLM_MODELS` list.
+      tier: # optional, accepts one of three values — `low`, `medium`, or `high` — and is used to specify the model's inference strength, allowing for flexible invocation across different tasks.
       price: # required only need to specify this when you need to track user token usage.
         input_tokens: 1 # dollars / 1 M tokens (non-cached)
         output_tokens: 10 # dollars / 1 M tokens
@@ -65,6 +65,10 @@ global:
     # <model 3 configuration>
     # - type : ...
 ```
+
+!!! note "Futher information about `tier` of a model"
+    - When multiple LLMs have the same `tier`, the system will use only the LLM that explicitly specifies that `tier`, with priority given to the first entry in the `LLM_MODELS` list.
+    - If the tier specified for a service in [AI_UTILS_TIER](#seaqa-ai-settings) is not defined in `LLM_MODELS`, then the default model in `LLM_MODELS` or the first valid model in the list will be used.
 
 #### LLMs reference configuration
 
@@ -200,6 +204,15 @@ seaqa-ai:
     generate_summary: low
     rerank_relevance: medium
 ```
+
+!!! tip "Model selection"
+    - For the chat and agent, the models typically used include:
+        - Main resonance chain:
+            - Chat: The model selected for the webpage (`LLM_MODELS.hidden = false`)
+            - Agent: The defualt model in `LLM_MODELS`
+        - An embedding model for vector search
+        - A model specified by `AI_UTILS_TIER.rerank_relevance` for reranking search results
+    - For other services (e.g., summary generation), will use the model specified in `AI_UTILS_TIER`
 
 ### Agent configurations
 

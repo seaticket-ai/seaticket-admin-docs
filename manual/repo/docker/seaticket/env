@@ -11,6 +11,10 @@ SEATICKET_SERVER_HOSTNAME=
 SEATICKET_SERVER_PROTOCOL=http
 ENABLE_NOTIFICATION_SERVER=false
 
+# Portal routing values used by Docker Compose and Caddy.
+PORTAL_SERVICE_ROOT_DOMAIN=portal-seaticket.com
+PORTAL_CERTS_VOLUME=/opt/caddy-certs
+
 # Non-SeaTicket components configuration
 
 ## SeaTicket components configuration (JWT_PRIVATE_KEY of SeaDB should be the same as SeaTicket)

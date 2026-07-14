@@ -118,6 +118,8 @@ Enter the username and password according to the prompts. You now have a new adm
 
 Finally, you can go to `http://seaticket.example.com` to use SeaTicket.
 
+To provide project support portals through subdomains or customer-owned domains, deploy the separate Portal-mode Web service and complete the DNS, reverse proxy, and TLS steps in [Portal Domain](../configuration/portal_domain.md).
+
 ## Deploy other components
 
 You can deploy other components of SeaTicket, such as seaqa-ai, seaqa-events, seaqa-indexer, and seaqa-notification.

@@ -1,4 +1,4 @@
-COMPOSE_FILE='seadb.yml'
+COMPOSE_FILE='fdb.yml,seadb.yml'
 COMPOSE_PATH_SEPARATOR=','
 
 # system settings

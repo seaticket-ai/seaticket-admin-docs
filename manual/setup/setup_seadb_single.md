@@ -1,6 +1,6 @@
 # Setup SeaDB in single node
 
-SeaDB depends on [FoundationDB](https://apple.github.io/foundationdb/). 
+SeaDB depends on [FoundationDB](https://apple.github.io/foundationdb/).
 
 FoundationDB is a distributed database designed to handle large volumes of structured data across clusters of commodity servers.
 
@@ -23,6 +23,12 @@ wget https://manual.seaticket.ai/0.9/repo/docker/seadb/seadb.yml
 chmod +x init-fdb.sh
 
 vim .env
+```
+
+Modify COMPOSE_FILE='fdb.yml' to COMPOSE_FILE='fdb.yml,seadb.yml' in the .env file.
+
+```env
+COMPOSE_FILE='fdb.yml,seadb.yml'
 ```
 
 The following fields merit particular attention:

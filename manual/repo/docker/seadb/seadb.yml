@@ -14,9 +14,6 @@ services:
       - JWT_PRIVATE_KEY=${SEADB_SERVER_ACCESS_TOKEN:?Variable is not set or empty}
     networks:
       - backend-net
-    depends_on:
-      fdb:
-        condition: service_healthy
     healthcheck:
       test:
         - CMD-SHELL

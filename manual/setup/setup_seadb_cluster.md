@@ -174,7 +174,7 @@ mkdir /opt/seadb
 cd /opt/seadb
 
 wget -O .env https://manual.seaticket.ai/0.9/repo/docker/seadb/env
-wget -O seadb.yml https://manual.seaticket.ai/0.9/repo/docker/seadb/seadb-standalone.yml
+wget https://manual.seaticket.ai/0.9/repo/docker/seadb/seadb.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seadb/fdb.cluster
 
 vim .env

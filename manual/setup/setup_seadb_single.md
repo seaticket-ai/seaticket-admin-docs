@@ -1,10 +1,10 @@
 # Setup SeaDB in single node
 
-SeaDB depends on [FoundationDB](https://apple.github.io/foundationdb/). 
+SeaDB depends on [FoundationDB](https://apple.github.io/foundationdb/).
 
 FoundationDB is a distributed database designed to handle large volumes of structured data across clusters of commodity servers.
 
-## Deploy FoundationDB
+## Deploy FoundationDB and SeaDB
 
 For non-production environments, FoundationDB`(v7.3.63)` can be deployed as a single-node instance using Docker. For installation-package deployments, please refer to the [official documentation](https://apple.github.io/foundationdb/getting-started-linux.html).
 
@@ -17,50 +17,17 @@ cd /opt/seadb
 wget -O .env https://manual.seaticket.ai/0.9/repo/docker/seadb/env
 wget https://manual.seaticket.ai/0.9/repo/docker/seadb/fdb.yml
 wget https://manual.seaticket.ai/0.9/repo/docker/seadb/fdb.cluster
-
-vim .env
-```
-
-Modify `COMPOSE_FILE='seadb.yml'` to `COMPOSE_FILE='fdb.yml'` in the `.env` file.
-
-```shell
-COMPOSE_FILE='fdb.yml'
-```
-
-### Initialize FoundationDB
-
-```shell
-# Start the FoundationDB service
-docker compose up -d
-
-# Enter the fdb container
-docker exec -it fdb bash
-
-fdbcli
-# Configure the ssd-2 storage engine
-fdb> configure new single ssd
-fdb> configure storage_migration_type=aggressive
-fdb> configure ssd
-
-# Check the fdb status
-fdb> status
-```
-
-## Deploy SeaDB
-
-### Download and modify `.env`
-
-```bash
-cd /opt/seadb
-
+wget https://manual.seaticket.ai/0.9/repo/docker/seadb/init-fdb.sh
 wget https://manual.seaticket.ai/0.9/repo/docker/seadb/seadb.yml
 
+chmod +x init-fdb.sh
+
 vim .env
 ```
 
-Modify `COMPOSE_FILE='fdb.yml'` to `COMPOSE_FILE='fdb.yml,seadb.yml'` in the `.env` file.
+Modify COMPOSE_FILE='fdb.yml' to COMPOSE_FILE='fdb.yml,seadb.yml' in the .env file.
 
-```shell
+```env
 COMPOSE_FILE='fdb.yml,seadb.yml'
 ```
 
@@ -73,13 +40,29 @@ The following fields merit particular attention:
 | `FDB_VOLUME`          | The volume directory of FoundationDB data                                                                            | `/opt/fdb-data`         |  
 | `TIME_ZONE`                     | Time zone                                                                                                     | `UTC`                           |
 
-### Start SeaDB
+### Start FoundationDB and SeaDB
+
+```shell
+docker compose up -d
+```
+
+### Initialize FoundationDB
+
+```shell
+bash init-fdb.sh
+```
+
+When you see the following log, it means that FoundationDB is ready:
+
+```log
+FDB initialization completed.
+```
+
+## SeaDB service
 
 Run the following command:
 
 ```bash
-docker compose up -d
-
 docker logs -f seadb
 ```
 

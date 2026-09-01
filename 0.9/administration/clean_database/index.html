@@ -19,7 +19,7 @@
       
       
       <link rel="icon" href="../../media/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -27,7 +27,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1355,19 +1355,19 @@ DELETE FROM sysadmin_extra_userloginlog WHERE to_days(now()) - to_days(login_dat
 </ul>
 <p>You can also clean these tables manually as follows.</p>
 <div class="highlight"><pre><span></span><code>use sea_qa;
-DELETE FROM user_notifications WHERE `timestamp` &lt; &#39;&lt;cutoff_date&gt;&#39;;
+DELETE FROM user_notifications WHERE `timestamp` &lt; '&lt;cutoff_date&gt;';
 
-DELETE FROM project_notification WHERE `timestamp` &lt; &#39;&lt;cutoff_date&gt;&#39;;
+DELETE FROM project_notification WHERE `timestamp` &lt; '&lt;cutoff_date&gt;';
 </code></pre></div>
 <h2 id="clean-portal-external-invitations">Clean portal external invitations<a class="headerlink" href="#clean-portal-external-invitations" title="Permanent link">&para;</a></h2>
 <p>Portal external invitation tokens that expire after a fixed time window (default: 72 hours). Expired invitations should be cleaned to reduce stale records.</p>
 <p>You can also clean these tables manually as follows.</p>
-<div class="highlight"><pre><span></span><code>DELETE FROM portal_external_invitations WHERE expire_time &lt; &#39;&lt;cutoff_date&gt;&#39;;
+<div class="highlight"><pre><span></span><code>DELETE FROM portal_external_invitations WHERE expire_time &lt; '&lt;cutoff_date&gt;';
 </code></pre></div>
 <h2 id="clean-ai-usage-statistics">Clean AI usage statistics<a class="headerlink" href="#clean-ai-usage-statistics" title="Permanent link">&para;</a></h2>
 <p>AI usage statistics are stored in <code>ai_usage_statistics</code> and should be cleaned by date. The filter field is <code>date</code>.</p>
 <p>You can also clean these tables manually as follows.</p>
-<div class="highlight"><pre><span></span><code>DELETE FROM ai_usage_statistics WHERE `date` &lt; &#39;&lt;cutoff_date&gt;&#39;;
+<div class="highlight"><pre><span></span><code>DELETE FROM ai_usage_statistics WHERE `date` &lt; '&lt;cutoff_date&gt;';
 </code></pre></div>
 
 
@@ -1449,7 +1449,7 @@ DELETE FROM project_notification WHERE `timestamp` &lt; &#39;&lt;cutoff_date&gt;
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tracking", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "search.share", "math", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

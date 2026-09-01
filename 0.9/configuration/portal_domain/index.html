@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../media/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1555,8 +1555,8 @@ wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticke
 wget<span class="w"> </span>https://manual.seaticket.ai/0.9/repo/docker/seaticket/caddy-portal.yml
 </code></pre></div>
 <p>Add the files to <code>COMPOSE_FILE</code> in <code>/opt/seaticket/.env</code> and configure the Portal domain values:</p>
-<div class="highlight"><pre><span></span><code>COMPOSE_FILE=&#39;caddy.yml,caddy-portal.yml,seaqa-web.yml,seaqa-web-portal.yml&#39;
-COMPOSE_PATH_SEPARATOR=&#39;,&#39;
+<div class="highlight"><pre><span></span><code>COMPOSE_FILE='caddy.yml,caddy-portal.yml,seaqa-web.yml,seaqa-web-portal.yml'
+COMPOSE_PATH_SEPARATOR=','
 
 PORTAL_SERVICE_ROOT_DOMAIN=portal-seaticket.com
 PORTAL_CERTS_VOLUME=/opt/caddy-certs
@@ -1631,10 +1631,10 @@ chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/
 </ol>
 <p>A single wildcard certificate covers all first-level project subdomains under <code>portal-seaticket.com</code>. Once the wildcard DNS record and certificate are active, adding a project Portal does not require another DNS record or certificate.</p>
 <p>The equivalent Caddy behavior is shown below. Adapt the syntax to the ingress used by the deployment:</p>
-<div class="highlight"><pre><span></span><code>https://*.portal-seaticket.com {
-    tls /certs/portal-fullchain.pem /certs/portal-privkey.pem
-    reverse_proxy seaqa-web-portal:80
-}
+<div class="highlight"><pre><span></span><code>https://*.portal-seaticket.com<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">tls</span><span class="w"> </span>/certs/portal-fullchain.pem<span class="w"> </span>/certs/portal-privkey.pem
+<span class="w">    </span><span class="k">reverse_proxy</span><span class="w"> </span>seaqa-web-portal:80
+<span class="p">}</span>
 </code></pre></div>
 <p>Caddy preserves the original <code>Host</code> header and sets the standard forwarded headers by default. Other ingress implementations must preserve the original <code>Host</code> header and set <code>X-Forwarded-Proto</code> to the client-facing protocol explicitly when they do not do so automatically.</p>
 <div class="admonition note">
@@ -1646,18 +1646,18 @@ chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/
 <div class="highlight"><pre><span></span><code>http://seaqa-web-portal/internal/portal/custom-domain/allow-tls?domain=&lt;requested-domain&gt;
 </code></pre></div>
 <p>It returns success only when the custom domain is verified and its project Portal is enabled. The labels in <code>seaqa-web-portal.yml</code> generate the equivalent of this Caddy behavior:</p>
-<div class="highlight"><pre><span></span><code>{
-    on_demand_tls {
-        ask http://seaqa-web-portal/internal/portal/custom-domain/allow-tls
-    }
-}
+<div class="highlight"><pre><span></span><code><span class="p">{</span>
+<span class="w">    </span>on_demand_tls<span class="w"> </span><span class="p">{</span>
+<span class="w">        </span>ask<span class="w"> </span>http://seaqa-web-portal/internal/portal/custom-domain/allow-tls
+<span class="w">    </span><span class="p">}</span>
+<span class="p">}</span>
 
-https:// {
-    tls {
-        on_demand
-    }
-    reverse_proxy seaqa-web-portal:80
-}
+https://<span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="k">tls</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span>on_demand
+<span class="w">    </span><span class="p">}</span>
+<span class="w">    </span><span class="k">reverse_proxy</span><span class="w"> </span>seaqa-web-portal:80
+<span class="p">}</span>
 </code></pre></div>
 <p>The <code>caddy_0</code> labels create the explicit Portal route using the shared <code>*.portal-seaticket.com</code> certificate. The <code>caddy_1</code> labels create the catch-all HTTPS route with on-demand TLS. The global <code>caddy.on_demand_tls.ask</code> label restricts certificate issuance to custom domains approved by SeaTicket.</p>
 <h2 id="expected-certificate-behavior">Expected certificate behavior<a class="headerlink" href="#expected-certificate-behavior" title="Permanent link">&para;</a></h2>
@@ -1869,7 +1869,7 @@ https:// {
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tracking", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "search.share", "math", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

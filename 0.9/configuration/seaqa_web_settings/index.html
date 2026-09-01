@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../media/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1798,24 +1798,24 @@
 <h3 id="configuration-example">Configuration example<a class="headerlink" href="#configuration-example" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code><span class="c1"># seaqa_web_settings.py</span>
 <span class="n">ENABLED_ROLE_PERMISSIONS</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;free&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;can_add_project&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="s1">&#39;can_add_group&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
-        <span class="s1">&#39;can_use_saml&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s1">&#39;ai_credit&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+    <span class="s1">'free'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'can_add_project'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">'can_add_group'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">'can_use_saml'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">'ai_credit'</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s1">&#39;starter&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;can_use_saml&#39;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-        <span class="s1">&#39;ai_credit&#39;</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
+    <span class="s1">'starter'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'can_use_saml'</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="s1">'ai_credit'</span><span class="p">:</span> <span class="mi">2000</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s1">&#39;pro&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;ai_credit&#39;</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
+    <span class="s1">'pro'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'ai_credit'</span><span class="p">:</span> <span class="mi">5000</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s1">&#39;business&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;can_use_saml&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">'business'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'can_use_saml'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">},</span>
-    <span class="s1">&#39;enterprise&#39;</span><span class="p">:</span> <span class="p">{</span>
-        <span class="s1">&#39;can_use_saml&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">'enterprise'</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">'can_use_saml'</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
     <span class="p">},</span>
 <span class="p">}</span>
 </code></pre></div>
@@ -1829,59 +1829,59 @@
 <h2 id="basic-settings">Basic settings<a class="headerlink" href="#basic-settings" title="Permanent link">&para;</a></h2>
 <p>General site metadata and links for the login and registration pages. Email settings are documented in <a href="../sending_email/">Sending Email Notifications</a>.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Base name used in email sending</span>
-<span class="n">SITE_NAME</span> <span class="o">=</span> <span class="s1">&#39;SeaTicket&#39;</span>
+<span class="n">SITE_NAME</span> <span class="o">=</span> <span class="s1">'SeaTicket'</span>
 
-<span class="c1"># Browser tab&#39;s title</span>
-<span class="n">SITE_TITLE</span> <span class="o">=</span> <span class="s1">&#39;SeaTicket&#39;</span>
+<span class="c1"># Browser tab's title</span>
+<span class="n">SITE_TITLE</span> <span class="o">=</span> <span class="s1">'SeaTicket'</span>
 
 <span class="c1"># privacy policy link and service link</span>
-<span class="n">PRIVACY_POLICY_LINK</span> <span class="o">=</span> <span class="s1">&#39;https://your-domain/policy&#39;</span>
-<span class="n">TERMS_OF_SERVICE_LINK</span> <span class="o">=</span> <span class="s1">&#39;https://your-domain/terms&#39;</span>
+<span class="n">PRIVACY_POLICY_LINK</span> <span class="o">=</span> <span class="s1">'https://your-domain/policy'</span>
+<span class="n">TERMS_OF_SERVICE_LINK</span> <span class="o">=</span> <span class="s1">'https://your-domain/terms'</span>
 
 <span class="c1"># Redirect URL after logout; falls back to the default logout page when empty</span>
-<span class="n">LOGOUT_REDIRECT_URL</span> <span class="o">=</span> <span class="s1">&#39;https://example.com/&lt;your-own-logout-page&gt;&#39;</span>
+<span class="n">LOGOUT_REDIRECT_URL</span> <span class="o">=</span> <span class="s1">'https://example.com/&lt;your-own-logout-page&gt;'</span>
 
 <span class="c1"># Custom language code choices (overrides defaults in `settings.py` when needed)</span>
 <span class="n">LANGUAGES</span> <span class="o">=</span> <span class="p">(</span>
-    <span class="p">(</span><span class="s1">&#39;en&#39;</span><span class="p">,</span> <span class="s1">&#39;English&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;zh-cn&#39;</span><span class="p">,</span> <span class="s1">&#39;简体中文&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;zh-tw&#39;</span><span class="p">,</span> <span class="s1">&#39;繁體中文&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'en'</span><span class="p">,</span> <span class="s1">'English'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'zh-cn'</span><span class="p">,</span> <span class="s1">'简体中文'</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'zh-tw'</span><span class="p">,</span> <span class="s1">'繁體中文'</span><span class="p">),</span>
 <span class="p">)</span>
 
-<span class="c1"># Force default language for anonymous users (e.g., &#39;en&#39;, &#39;zh-cn&#39;)</span>
-<span class="n">FORCE_DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="c1"># Force default language for anonymous users (e.g., 'en', 'zh-cn')</span>
+<span class="n">FORCE_DEFAULT_LANGUAGE</span> <span class="o">=</span> <span class="s1">''</span>
 
 <span class="c1"># Path to the background image file of login page(relative to the media path)</span>
-<span class="n">LOGIN_BG_IMAGE_PATH</span> <span class="o">=</span> <span class="s1">&#39;img/login-bg.jpg&#39;</span>
+<span class="n">LOGIN_BG_IMAGE_PATH</span> <span class="o">=</span> <span class="s1">'img/login-bg.jpg'</span>
 </code></pre></div>
 <h2 id="ui-customization">UI customization<a class="headerlink" href="#ui-customization" title="Permanent link">&para;</a></h2>
 <p>Visual branding and UI assets for the web interface. Default assets use <code>LOGO_PATH</code>/<code>FAVICON_PATH</code> values, while <code>CUSTOM_*</code> paths are optional overrides that only take effect when the corresponding files exist.</p>
 <h3 id="logo">Logo<a class="headerlink" href="#logo" title="Permanent link">&para;</a></h3>
 <p><code>LOGO_PATH</code> points to the <strong>default</strong> logo. If you want to replace it, keep the same key but change the path to your own file.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default logo path (relative to media root)</span>
-<span class="n">LOGO_PATH</span> <span class="o">=</span> <span class="s1">&#39;img/SeaTicket.png&#39;</span>
+<span class="n">LOGO_PATH</span> <span class="o">=</span> <span class="s1">'img/SeaTicket.png'</span>
 
 <span class="c1"># Optional logo size override</span>
-<span class="n">LOGO_WIDTH</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">LOGO_WIDTH</span> <span class="o">=</span> <span class="s1">''</span>
 <span class="n">LOGO_HEIGHT</span> <span class="o">=</span> <span class="mi">32</span>
 </code></pre></div>
 <h3 id="favicon">Favicon<a class="headerlink" href="#favicon" title="Permanent link">&para;</a></h3>
 <p><code>FAVICON_PATH</code>, <code>FAVICON_NOTIFICATION_PATH</code>, and <code>APPLE_TOUCH_ICON_PATH</code> point to the <strong>default</strong> favicon files. To replace them, keep the keys but change the paths to your own assets.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Default favicon icons (replace with your own files if needed)</span>
-<span class="n">FAVICON_PATH</span> <span class="o">=</span> <span class="s1">&#39;favicons/favicon.ico&#39;</span>
-<span class="n">FAVICON_NOTIFICATION_PATH</span> <span class="o">=</span> <span class="s1">&#39;favicons/notification-favicon.ico&#39;</span>
-<span class="n">APPLE_TOUCH_ICON_PATH</span> <span class="o">=</span> <span class="s1">&#39;favicons/favicon.ico&#39;</span>
+<span class="n">FAVICON_PATH</span> <span class="o">=</span> <span class="s1">'favicons/favicon.ico'</span>
+<span class="n">FAVICON_NOTIFICATION_PATH</span> <span class="o">=</span> <span class="s1">'favicons/notification-favicon.ico'</span>
+<span class="n">APPLE_TOUCH_ICON_PATH</span> <span class="o">=</span> <span class="s1">'favicons/favicon.ico'</span>
 </code></pre></div>
 <h3 id="custom-asset-overrides">Custom asset overrides<a class="headerlink" href="#custom-asset-overrides" title="Permanent link">&para;</a></h3>
 <p><code>CUSTOM_*</code> paths are optional overrides that take effect only when the files exist under <code>seaqa-web-data</code>. Use them if you prefer to keep defaults untouched and swap assets by placing files in the <code>custom/</code> directory.</p>
 <div class="highlight"><pre><span></span><code><span class="c1"># Custom branding assets (optional overrides when files exist)</span>
-<span class="n">CUSTOM_LOGO_PATH</span> <span class="o">=</span> <span class="s1">&#39;custom/mylogo.png&#39;</span>
-<span class="n">CUSTOM_FAVICON_PATH</span> <span class="o">=</span> <span class="s1">&#39;custom/favicon.ico&#39;</span>
-<span class="n">CUSTOM_FAVICON_NOTIFICATION_PATH</span> <span class="o">=</span> <span class="s1">&#39;custom/notification-favicon.ico&#39;</span>
-<span class="n">CUSTOM_LOGIN_BG_PATH</span> <span class="o">=</span> <span class="s1">&#39;custom/login-bg.jpg&#39;</span>
+<span class="n">CUSTOM_LOGO_PATH</span> <span class="o">=</span> <span class="s1">'custom/mylogo.png'</span>
+<span class="n">CUSTOM_FAVICON_PATH</span> <span class="o">=</span> <span class="s1">'custom/favicon.ico'</span>
+<span class="n">CUSTOM_FAVICON_NOTIFICATION_PATH</span> <span class="o">=</span> <span class="s1">'custom/notification-favicon.ico'</span>
+<span class="n">CUSTOM_LOGIN_BG_PATH</span> <span class="o">=</span> <span class="s1">'custom/login-bg.jpg'</span>
 
 <span class="c1"># Legacy CSS override path</span>
-<span class="n">BRANDING_CSS</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">BRANDING_CSS</span> <span class="o">=</span> <span class="s1">''</span>
 <span class="c1"># Allow uploading branding CSS via admin UI</span>
 <span class="n">ENABLE_BRANDING_CSS</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># Control whether top bar shows logout icon</span>
@@ -1919,12 +1919,12 @@
 <span class="c1"># Freeze account when exceeding failures</span>
 <span class="n">FREEZE_USER_ON_LOGIN_FAILED</span> <span class="o">=</span> <span class="kc">False</span>
 
-<span class="c1"># minimum length for user&#39;s password</span>
+<span class="c1"># minimum length for user's password</span>
 <span class="n">USER_PASSWORD_MIN_LENGTH</span> <span class="o">=</span> <span class="mi">6</span>
 
 <span class="c1"># LEVEL based on four types of input:</span>
 <span class="c1"># num, upper letter, lower letter, other symbols</span>
-<span class="c1"># &#39;3&#39; means password must have at least 3 types of the above.</span>
+<span class="c1"># '3' means password must have at least 3 types of the above.</span>
 <span class="n">USER_PASSWORD_STRENGTH_LEVEL</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="c1"># default False, only check USER_PASSWORD_MIN_LENGTH</span>
@@ -1934,10 +1934,10 @@
 <span class="c1"># Force user to change password when admin adds/resets a user.</span>
 <span class="n">FORCE_PASSWORD_CHANGE</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="c1"># Whether to allow SSO users to set a local password; default True, admin or user can set a local password by &#39;Reset password&#39;</span>
+<span class="c1"># Whether to allow SSO users to set a local password; default True, admin or user can set a local password by 'Reset password'</span>
 <span class="n">ENABLE_SSO_USER_CHANGE_PASSWORD</span> <span class="o">=</span> <span class="kc">True</span>
 
-<span class="c1"># Whether to allow LDAP users to set a local password; default False, when True, admin or user can set a local password by &#39;Reset password&#39;</span>
+<span class="c1"># Whether to allow LDAP users to set a local password; default False, when True, admin or user can set a local password by 'Reset password'</span>
 <span class="n">ENABLE_LDAP_USER_CHANGE_PASSWORD</span> <span class="o">=</span> <span class="kc">False</span>
 
 <span class="c1"># Whether or not activate inactive user on first login. Mainly used in LDAP user sync.</span>
@@ -1954,21 +1954,21 @@
 </code></pre></div>
 <h2 id="security-settings">Security settings<a class="headerlink" href="#security-settings" title="Permanent link">&para;</a></h2>
 <p>Security hardening, throttling, and login protection. Configure captchas, rate limits, and account lockout policies here.</p>
-<div class="highlight"><pre><span></span><code><span class="c1"># For security consideration, please set to match the host/domain of your site, e.g., ALLOWED_HOSTS = [&#39;.example.com&#39;].</span>
+<div class="highlight"><pre><span></span><code><span class="c1"># For security consideration, please set to match the host/domain of your site, e.g., ALLOWED_HOSTS = ['.example.com'].</span>
 <span class="c1"># Please refer https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts for details.</span>
-<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;.myseaticket.com&#39;</span><span class="p">]</span>
+<span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'.myseaticket.com'</span><span class="p">]</span>
 
 <span class="c1"># Enable slide captcha challenge</span>
 <span class="n">ENABLE_SLIDE_CAPTCHA</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># Custom slide captcha image resource</span>
-<span class="n">SLIDE_CAPTCHA_IMAGE_URL</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">SLIDE_CAPTCHA_IMAGE_URL</span> <span class="o">=</span> <span class="s1">''</span>
 
 <span class="c1"># Enable Cloudflare Turnstile challenge</span>
 <span class="n">ENABLE_TURNSTILE</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># Cloudflare Turnstile site key</span>
-<span class="n">TURNSTILE_SITE_KEY</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">TURNSTILE_SITE_KEY</span> <span class="o">=</span> <span class="s1">''</span>
 <span class="c1"># Cloudflare Turnstile secret key</span>
-<span class="n">TURNSTILE_SECRET_KEY</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+<span class="n">TURNSTILE_SECRET_KEY</span> <span class="o">=</span> <span class="s1">''</span>
 
 <span class="c1"># Request throttle count within period</span>
 <span class="n">REQUEST_RATE_LIMIT_NUMBER</span> <span class="o">=</span> <span class="mi">3</span>
@@ -1985,7 +1985,7 @@
 <div class="highlight"><pre><span></span><code><span class="c1"># Enable TOTP-based two factor</span>
 <span class="n">ENABLE_TWO_FACTOR_AUTH</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># URL to redirect users for OTP setup when 2FA is required but not yet configured (defaults to `/profile/two_factor_authentication/setup/`)</span>
-<span class="n">OTP_LOGIN_URL</span> <span class="o">=</span> <span class="s1">&#39;/profile/two_factor_authentication/setup/&#39;</span>
+<span class="n">OTP_LOGIN_URL</span> <span class="o">=</span> <span class="s1">'/profile/two_factor_authentication/setup/'</span>
 <span class="c1"># Force every user to enable 2FA</span>
 <span class="n">ENABLE_FORCE_2FA_TO_ALL_USERS</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="c1"># Days to remember trusted devices</span>
@@ -2003,11 +2003,11 @@
 
 <span class="c1"># Aliyun SMS provider configuration used by registration/SMS login flows</span>
 <span class="n">ALIYUN_SMS_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;accessKeyId&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;accessKeySecret&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;signName&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;templateCode&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;regionId&#39;</span><span class="p">:</span> <span class="s1">&#39;cn-hangzhou&#39;</span><span class="p">,</span>
+    <span class="s1">'accessKeyId'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'accessKeySecret'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'signName'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'templateCode'</span><span class="p">:</span> <span class="s1">''</span><span class="p">,</span>
+    <span class="s1">'regionId'</span><span class="p">:</span> <span class="s1">'cn-hangzhou'</span><span class="p">,</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="user-profile-options">User profile options<a class="headerlink" href="#user-profile-options" title="Permanent link">&para;</a></h2>
@@ -2041,15 +2041,15 @@
 <h2 id="restful-api">RESTful API<a class="headerlink" href="#restful-api" title="Permanent link">&para;</a></h2>
 <p>API throttling related settings. Enlarger the rates if you got 429 response code during API calls. API_THROTTLE_RATES is used to replace the old REST_FRAMEWORK option. API_THROTTLE_RATES is empty by default. You can add your custom THROTTLE_RATE to the option</p>
 <div class="highlight"><pre><span></span><code><span class="n">API_THROTTLE_RATES</span> <span class="o">=</span> <span class="p">{</span>
-   <span class="s1">&#39;ping&#39;</span><span class="p">:</span> <span class="s1">&#39;3000/minute&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;anon&#39;</span><span class="p">:</span> <span class="s1">&#39;60/minute&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="s1">&#39;3000/minute&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;sync_common_dataset&#39;</span><span class="p">:</span> <span class="s1">&#39;60/minute&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;password_reset&#39;</span><span class="p">:</span> <span class="s1">&#39;10/minute&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;org-admin&#39;</span><span class="p">:</span> <span class="s1">&#39;1000/day&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;app&#39;</span><span class="p">:</span> <span class="s1">&#39;1000/minute&#39;</span><span class="p">,</span>
-   <span class="s1">&#39;import&#39;</span><span class="p">:</span> <span class="s1">&#39;20/minute&#39;</span><span class="p">,</span>   <span class="c1"># Limit the rate of API calls for importing via excel/csv</span>
-   <span class="s1">&#39;export&#39;</span><span class="p">:</span> <span class="s1">&#39;20/minute&#39;</span><span class="p">,</span>   <span class="c1"># Limit the rate of export base, table and view</span>
+   <span class="s1">'ping'</span><span class="p">:</span> <span class="s1">'3000/minute'</span><span class="p">,</span>
+   <span class="s1">'anon'</span><span class="p">:</span> <span class="s1">'60/minute'</span><span class="p">,</span>
+   <span class="s1">'user'</span><span class="p">:</span> <span class="s1">'3000/minute'</span><span class="p">,</span>
+   <span class="s1">'sync_common_dataset'</span><span class="p">:</span> <span class="s1">'60/minute'</span><span class="p">,</span>
+   <span class="s1">'password_reset'</span><span class="p">:</span> <span class="s1">'10/minute'</span><span class="p">,</span>
+   <span class="s1">'org-admin'</span><span class="p">:</span> <span class="s1">'1000/day'</span><span class="p">,</span>
+   <span class="s1">'app'</span><span class="p">:</span> <span class="s1">'1000/minute'</span><span class="p">,</span>
+   <span class="s1">'import'</span><span class="p">:</span> <span class="s1">'20/minute'</span><span class="p">,</span>   <span class="c1"># Limit the rate of API calls for importing via excel/csv</span>
+   <span class="s1">'export'</span><span class="p">:</span> <span class="s1">'20/minute'</span><span class="p">,</span>   <span class="c1"># Limit the rate of export base, table and view</span>
 <span class="p">}</span>
 </code></pre></div>
 <h2 id="trash-cleaning-interval">Trash cleaning interval<a class="headerlink" href="#trash-cleaning-interval" title="Permanent link">&para;</a></h2>
@@ -2188,7 +2188,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tracking", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "search.share", "math", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

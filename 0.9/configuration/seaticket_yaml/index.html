@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../media/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1587,14 +1587,14 @@
 <div class="highlight"><pre><span></span><code><span class="nt">global</span><span class="p">:</span>
 <span class="w">  </span><span class="nt">LLM_MODELS</span><span class="p">:</span>
 <span class="w">    </span><span class="c1"># &lt;model 1 configuration&gt;</span>
-<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;your_llm_provider&#39;</span><span class="w"> </span><span class="c1"># required, please refer https://docs.litellm.ai/docs/providers for the details</span>
-<span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;your_model_id&#39;</span><span class="w"> </span><span class="c1"># required</span>
-<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;llm_endpoint&#39;</span><span class="w"> </span><span class="c1"># required for some provider (or type)</span>
-<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;llm_secret_key&#39;</span><span class="w"> </span><span class="c1"># required for non-self deploy LLM server (including OpenAI proxy)</span>
-<span class="w">      </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s">&#39;display_name&#39;</span><span class="w"> </span><span class="c1"># optional, display name on SeaTicket chat page, default to option `model` if not set</span>
+<span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="nt">type</span><span class="p">:</span><span class="w"> </span><span class="s">'your_llm_provider'</span><span class="w"> </span><span class="c1"># required, please refer https://docs.litellm.ai/docs/providers for the details</span>
+<span class="w">      </span><span class="nt">model</span><span class="p">:</span><span class="w"> </span><span class="s">'your_model_id'</span><span class="w"> </span><span class="c1"># required</span>
+<span class="w">      </span><span class="nt">url</span><span class="p">:</span><span class="w"> </span><span class="s">'llm_endpoint'</span><span class="w"> </span><span class="c1"># required for some provider (or type)</span>
+<span class="w">      </span><span class="nt">key</span><span class="p">:</span><span class="w"> </span><span class="s">'llm_secret_key'</span><span class="w"> </span><span class="c1"># required for non-self deploy LLM server (including OpenAI proxy)</span>
+<span class="w">      </span><span class="nt">label</span><span class="p">:</span><span class="w"> </span><span class="s">'display_name'</span><span class="w"> </span><span class="c1"># optional, display name on SeaTicket chat page, default to option `model` if not set</span>
 <span class="w">      </span><span class="nt">hidden</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># optional, hidden on SeaTicket chat page but still can be used with API calling and other components, default to `false`</span>
 <span class="w">      </span><span class="nt">disable</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># optional, disable this LLM, default to `false`</span>
-<span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="c1"># optional, accepts one of three values — `low`, `medium`, or `high` — and is used to specify the model&#39;s inference strength, allowing for flexible invocation across different tasks.</span>
+<span class="w">      </span><span class="nt">tier</span><span class="p">:</span><span class="w"> </span><span class="c1"># optional, accepts one of three values — `low`, `medium`, or `high` — and is used to specify the model's inference strength, allowing for flexible invocation across different tasks.</span>
 <span class="w">      </span><span class="nt">price</span><span class="p">:</span><span class="w"> </span><span class="c1"># required only need to specify this when you need to track user token usage.</span>
 <span class="w">        </span><span class="nt">input_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1</span><span class="w"> </span><span class="c1"># dollars / 1 M tokens (non-cached)</span>
 <span class="w">        </span><span class="nt">output_tokens</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">10</span><span class="w"> </span><span class="c1"># dollars / 1 M tokens</span>
@@ -1702,16 +1702,16 @@
 </code></pre></div>
 <h3 id="thought-process">Thought process<a class="headerlink" href="#thought-process" title="Permanent link">&para;</a></h3>
 <p>The thought process is used to display detailed debug information about LLM calls, including system prompts, context, tool call history, and cost statistics. It will be displayed in the project's Chat and Agent modules.</p>
-<div class="highlight"><pre><span></span><code>global:
-  THOUGHT_PROCESS: # Configure which content to record in the thought process.
-    enabled: false # set to `true` to record in the thought process (global switcher)
-    tasks:
-      enabled: true
-      system_prompt: false
-      user_input: true
-      user_input_raw: false
-    context: false
-    tool_details: false
+<div class="highlight"><pre><span></span><code><span class="nt">global</span><span class="p">:</span>
+<span class="w">  </span><span class="nt">THOUGHT_PROCESS</span><span class="p">:</span><span class="w"> </span><span class="c1"># Configure which content to record in the thought process.</span>
+<span class="w">    </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span><span class="w"> </span><span class="c1"># set to `true` to record in the thought process (global switcher)</span>
+<span class="w">    </span><span class="nt">tasks</span><span class="p">:</span>
+<span class="w">      </span><span class="nt">enabled</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">system_prompt</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">      </span><span class="nt">user_input</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">true</span>
+<span class="w">      </span><span class="nt">user_input_raw</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">context</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
+<span class="w">    </span><span class="nt">tool_details</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">false</span>
 </code></pre></div>
 <h2 id="seaqa-ai-settings">seaqa-ai settings<a class="headerlink" href="#seaqa-ai-settings" title="Permanent link">&para;</a></h2>
 <p>The following are the default values, normally, you don't need to make any additional settings for this part</p>
@@ -1891,7 +1891,7 @@
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tracking", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "search.share", "math", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

@@ -23,7 +23,7 @@
       
       
       <link rel="icon" href="../../media/favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
     
     
       
@@ -31,7 +31,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
@@ -1568,12 +1568,12 @@ chmod<span class="w"> </span><span class="m">755</span><span class="w"> </span>/
 <p>Check whether the foundationdb processes have started, and verify that the cluster status and the role/class identity of each process are correct.</p>
 <div class="highlight"><pre><span></span><code>systemctl<span class="w"> </span>start<span class="w"> </span>foundationdb<span class="w"> </span><span class="o">||</span><span class="w"> </span>service<span class="w"> </span>foundationdb<span class="w"> </span>start
 
-ss<span class="w"> </span>-lntp<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s1">&#39;:4500|:4501&#39;</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
+ss<span class="w"> </span>-lntp<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s1">':4500|:4501'</span><span class="w"> </span><span class="o">||</span><span class="w"> </span><span class="nb">true</span>
 
-fdbcli<span class="w"> </span>--exec<span class="w"> </span><span class="s2">&quot;status json&quot;</span><span class="w"> </span><span class="se">\</span>
-<span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">&#39;.cluster.processes</span>
+fdbcli<span class="w"> </span>--exec<span class="w"> </span><span class="s2">"status json"</span><span class="w"> </span><span class="se">\</span>
+<span class="p">|</span><span class="w"> </span>jq<span class="w"> </span>-r<span class="w"> </span><span class="s1">'.cluster.processes</span>
 <span class="s1">         | to_entries[]</span>
-<span class="s1">         | &quot;\(.value.address)\tclass=\(.value.class_type // &quot;unset&quot;)\troles=\((.value.roles // [])|map(.role)|unique|join(&quot;,&quot;))&quot;&#39;</span>
+<span class="s1">         | "\(.value.address)\tclass=\(.value.class_type // "unset")\troles=\((.value.roles // [])|map(.role)|unique|join(","))"'</span>
 
 <span class="m">192</span>.168.0.12:4501<span class="w">   </span><span class="nv">class</span><span class="o">=</span>storage<span class="w">  </span><span class="nv">roles</span><span class="o">=</span>ratekeeper,storage
 <span class="m">192</span>.168.0.11:4500<span class="w">   </span><span class="nv">class</span><span class="o">=</span>transaction<span class="w">  </span><span class="nv">roles</span><span class="o">=</span>cluster_controller,coordinator,log,resolver
@@ -1602,7 +1602,7 @@ description:cluster-id@192.168.0.10:4500
 systemctl<span class="w"> </span>restart<span class="w"> </span>foundationdb<span class="w"> </span><span class="o">||</span><span class="w"> </span>service<span class="w"> </span>foundationdb<span class="w"> </span>restart
 </code></pre></div>
 <p>Check the cluster status to confirm that each machine has joined the cluster and that the process count is correct.</p>
-<div class="highlight"><pre><span></span><code>fdbcli<span class="w"> </span>--exec<span class="w"> </span><span class="s2">&quot;status details&quot;</span>
+<div class="highlight"><pre><span></span><code>fdbcli<span class="w"> </span>--exec<span class="w"> </span><span class="s2">"status details"</span>
 </code></pre></div>
 <p>Key output:</p>
 <div class="highlight"><pre><span></span><code>Cluster:
@@ -1625,10 +1625,10 @@ chown<span class="w"> </span>-R<span class="w"> </span>foundationdb:foundationdb
 
 systemctl<span class="w"> </span>start<span class="w"> </span>foundationdb<span class="w"> </span><span class="o">||</span><span class="w"> </span>service<span class="w"> </span>foundationdb<span class="w"> </span>start
 
-ss<span class="w"> </span>-lntp<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s1">&#39;4500|4501&#39;</span>
+ss<span class="w"> </span>-lntp<span class="w"> </span><span class="p">|</span><span class="w"> </span>egrep<span class="w"> </span><span class="s1">'4500|4501'</span>
 
 <span class="c1"># Check cluster status.</span>
-fdbcli<span class="w"> </span>--exec<span class="w"> </span><span class="s2">&quot;status details&quot;</span>
+fdbcli<span class="w"> </span>--exec<span class="w"> </span><span class="s2">"status details"</span>
 </code></pre></div>
 <h3 id="add-the-coordinator-servers">Add the coordinator servers<a class="headerlink" href="#add-the-coordinator-servers" title="Permanent link">&para;</a></h3>
 <p>Switch the coordinator servers and add more coordinators to improve fault tolerance.</p>
@@ -1813,7 +1813,7 @@ docker<span class="w"> </span>logs<span class="w"> </span>-f<span class="w"> </s
       <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.footer", "navigation.tracking", "navigation.sections", "navigation.tabs", "navigation.top", "search.suggest", "search.highlight", "search.share", "math", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": {"provider": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       

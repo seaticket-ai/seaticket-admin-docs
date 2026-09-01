@@ -13,6 +13,7 @@ The `.env` file will be used to specify the general settings of the components u
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------- | ------------------------------- |
 | `SEADB_SERVER_URL`              | SeaDB server URL                                                                                              | `http://seadb`                  |
 | `SEADB_SERVER_ACCESS_TOEKN`     | Access token for SeaDB server                                                                                 | (required)                      |
+| `SEADB_STORAGE_BACKEND`     | Storage Backend for SeaDB server ( `fdb` or `pebble`)                                                                                 | `fdb`                      |
 
 ## SeaSearch Settings
 | Variable                        | Description                                                                                                   | Default Value                   |  
